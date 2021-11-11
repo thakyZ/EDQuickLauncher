@@ -1,5 +1,4 @@
 var fs = require("fs");
-const config = require('./EDQuickLauncher_Localizable.json');
 
 var run = function() {
   var json_data = JSON.parse(fs.readFileSync("./EDQuickLauncher_Localizable.json", "utf-8"));
