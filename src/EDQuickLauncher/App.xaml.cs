@@ -1,7 +1,6 @@
 ﻿/* XIVQuickLauncher - Modified Code
  * Copyright (C) 2021  goatcorp
  */
-
 using System;
 using System.Globalization;
 using System.IO;
@@ -19,7 +18,6 @@ using EDQuickLauncher.Settings.Parsers;
 using EDQuickLauncher.Windows;
 
 namespace EDQuickLauncher {
-
   /// <summary>
   ///     Interaction logic for App.xaml
   /// </summary>

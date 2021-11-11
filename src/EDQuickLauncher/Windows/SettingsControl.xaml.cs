@@ -1,7 +1,6 @@
 ﻿/* XIVQuickLauncher - Modified Code
  * Copyright (C) 2021  goatcorp
  */
-
 using EDQuickLauncher.Addon;
 using EDQuickLauncher.Settings;
 using EDQuickLauncher.Windows.ViewModel;
@@ -16,12 +15,10 @@ using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace EDQuickLauncher.Windows {
-
   /// <summary>
   ///     Interaction logic for SettingsControl.xaml
   /// </summary>
   public partial class SettingsControl {
-
     public event EventHandler SettingsDismissed;
 
     private SettingsControlViewModel ViewModel => DataContext as SettingsControlViewModel;
