@@ -9,7 +9,7 @@ namespace EDQuickLauncher.Windows.ViewModel {
 
     private void SetupLoc() {
       ErrorExplanationMsgLoc = Loc.Localize("ErrorExplanation",
-        "An error in EDQuickLauncher occured. Please consult the FAQ. If this issue persists, please report\r\nit on GitHub by clicking the button below, describing the issue and copying the text in the box.");
+        "An error in EDQuickLauncher occurred. Please consult the FAQ. If this issue persists, please report\r\nit on GitHub by clicking the button below, describing the issue and copying the text in the box.");
       JoinDiscordLoc = Loc.Localize("JoinDiscord", "Join Discord");
       OpenFaqLoc = Loc.Localize("OpenFaq", "Open FAQ");
       ReportErrorLoc = Loc.Localize("ReportError", "Report error");

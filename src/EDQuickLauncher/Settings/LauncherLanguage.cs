@@ -1,17 +1,13 @@
 ﻿/* XIVQuickLauncher - Modified Code
  * Copyright (C) 2021  goatcorp
  */
-
 using EDQuickLauncher.Settings;
 using System.Collections.Generic;
 
 namespace EDQuickLauncher.Settings {
-
   public enum LauncherLanguage {
-
     //Japanese,
     English,
-
     //German,
     //French,
     //Italian,
@@ -27,7 +23,8 @@ namespace EDQuickLauncher.Settings {
 
     private static Dictionary<LauncherLanguage, string> GetLangCodes() {
       // MUST match LauncherLanguage enum
-      return new Dictionary<LauncherLanguage, string> { //{ LauncherLanguage.Japanese, "ja" },
+      return new Dictionary<LauncherLanguage, string> {
+        //{ LauncherLanguage.Japanese, "ja" },
         { LauncherLanguage.English, "en" },
         //{ LauncherLanguage.German, "de" },
         //{ LauncherLanguage.French, "fr" },

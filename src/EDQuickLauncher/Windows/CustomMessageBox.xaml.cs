@@ -10,6 +10,7 @@ using System.Media;
 using System.Threading;
 using System.Windows;
 using System.Windows.Media;
+
 namespace EDQuickLauncher.Windows {
   /// <summary>
   /// Interaction logic for ErrorWindow.xaml

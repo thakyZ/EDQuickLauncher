@@ -1,14 +1,12 @@
 ﻿/* XIVQuickLauncher - Modified Code
  * Copyright (C) 2021  goatcorp
  */
-
 using SteamworksSharp.Native.Libs;
 using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
 namespace SteamworksSharp.Native.Windows_x64 {
-
   public class NativeLibrary : INativeLibrary {
     public OSPlatform Platform { get; } = OSPlatform.Windows;
 

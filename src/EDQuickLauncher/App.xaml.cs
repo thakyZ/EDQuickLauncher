@@ -21,7 +21,7 @@ using EDQuickLauncher.Windows;
 namespace EDQuickLauncher {
 
   /// <summary>
-  ///     Interaction logic for App.xaml
+  /// Interaction logic for App.xaml
   /// </summary>
   public partial class App : Application {
     public const string RepoUrl = "https://github.com/thakyZ/EDQuickLauncher";
@@ -164,7 +164,7 @@ namespace EDQuickLauncher {
         Log.Error((Exception)e.ExceptionObject, "Unhandled exception.");
 
         if (_useFullExceptionHandler) {
-          new ErrorWindow((Exception)e.ExceptionObject, "An unhandled exception occured.", "Unhandled")
+          new ErrorWindow((Exception)e.ExceptionObject, "An unhandled exception occurred.", "Unhandled")
             .ShowDialog();
         } else {
           MessageBox.Show(

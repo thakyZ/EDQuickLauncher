@@ -4,9 +4,10 @@
 using EDQuickLauncher.Addon;
 using EDQuickLauncher.Windows.ViewModel;
 using System.Windows;
+
 namespace EDQuickLauncher.Windows {
   /// <summary>
-  ///     Interaction logic for FirstTimeSetup.xaml
+  /// Interaction logic for FirstTimeSetup.xaml
   /// </summary>
   public partial class GenericAddonSetupWindow : Window {
     public GenericAddon Result { get; private set; }

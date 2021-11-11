@@ -1,9 +1,7 @@
 ﻿/* XIVQuickLauncher - Modified Code
  * Copyright (C) 2021  goatcorp
  */
-
 namespace EDQuickLauncher {
-
   internal static class EnvironmentSettings {
     public static bool IsWine => CheckEnvBool("ED_WINEONLINUX");
     public static bool IsDisableUpdates => CheckEnvBool("ED_NOAUTOUPDATE");

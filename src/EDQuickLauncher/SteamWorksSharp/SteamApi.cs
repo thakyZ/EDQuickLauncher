@@ -9,7 +9,7 @@ using Valve.Interop;
 namespace SteamworksSharp {
   public static class SteamApi {
     /// <summary>
-    ///     This method must be called before doing anything else.
+    /// This method must be called before doing anything else.
     /// </summary>
     /// <returns>True if initialized successfully.</returns>
     public static bool Initialize(int appId = -1) {

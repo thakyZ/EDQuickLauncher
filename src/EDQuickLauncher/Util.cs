@@ -15,9 +15,7 @@ using System.Windows;
 using System.Windows.Media;
 
 namespace EDQuickLauncher {
-
   public static class Util {
-
     /// <summary>
     /// Generates a temporary file name.
     /// </summary>
@@ -32,8 +30,8 @@ namespace EDQuickLauncher {
     }
 
     /// <summary>
-    ///     Gets the git hash value from the assembly
-    ///     or null if it cannot be found.
+    /// Gets the git hash value from the assembly
+    /// or null if it cannot be found.
     /// </summary>
     public static string GetGitHash() {
       Assembly asm = typeof(Util).Assembly;

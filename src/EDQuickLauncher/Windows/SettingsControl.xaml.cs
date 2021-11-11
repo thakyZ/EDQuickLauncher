@@ -16,7 +16,7 @@ using System.Windows.Input;
 
 namespace EDQuickLauncher.Windows {
   /// <summary>
-  ///     Interaction logic for SettingsControl.xaml
+  /// Interaction logic for SettingsControl.xaml
   /// </summary>
   public partial class SettingsControl {
     public event EventHandler SettingsDismissed;

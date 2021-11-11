@@ -1,7 +1,6 @@
 /* XIVQuickLauncher - Modified Code
  * Copyright (C) 2021  goatcorp
  */
-
 using CheapLoc;
 using EDQuickLauncher.Windows;
 using Serilog;
@@ -19,7 +18,6 @@ using System.Threading;
 using System.Windows;
 
 namespace EDQuickLauncher.Game {
-
   public class Launcher {
     private const int STEAM_APP_ID = 359320;
 

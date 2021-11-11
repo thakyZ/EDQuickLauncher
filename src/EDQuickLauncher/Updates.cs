@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 using System.Windows;
 
 namespace EDQuickLauncher {
-
   internal class Updates {
 #if !XL_NOAUTOUPDATE
     public EventHandler OnUpdateCheckFinished;
@@ -45,7 +44,7 @@ namespace EDQuickLauncher {
 #endif
       } catch (Exception ex) {
         Log.Error(ex, "Update failed");
-        CustomMessageBox.Show(Loc.Localize("updatefailureerror", "EDQuickLauncher failed to check for updates. This may be caused by connectivity issues to GitHub. Wait a few minutes and try again.\nDisable your VPN, if you have one.\nIf it continues to fail after several minutes, please join the discord linked on GitHub for support."),
+        CustomMessageBox.Show(Loc.Localize("UpdateFailureError", "EDQuickLauncher failed to check for updates. This may be caused by connectivity issues to GitHub. Wait a few minutes and try again.\nDisable your VPN, if you have one.\nIf it continues to fail after several minutes, please join the discord linked on GitHub for support."),
           "EDQuickLauncher",
           MessageBoxButton.OK,
           MessageBoxImage.Error);

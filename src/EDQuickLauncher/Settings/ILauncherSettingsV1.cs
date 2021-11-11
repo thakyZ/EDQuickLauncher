@@ -1,15 +1,12 @@
 ﻿/* XIVQuickLauncher - Modified Code
  * Copyright (C) 2021  goatcorp
  */
-
 using EDQuickLauncher.Addon;
 using System.Collections.Generic;
 using System.IO;
 
 namespace EDQuickLauncher.Settings {
-
   public interface ILauncherSettingsV1 {
-
     #region Launcher Setting
 
     DirectoryInfo GamePath { get; set; }

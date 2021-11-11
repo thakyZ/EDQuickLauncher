@@ -1,7 +1,6 @@
 ﻿/* XIVQuickLauncher - Modified Code
  * Copyright (C) 2021  goatcorp
  */
-
 using EDQuickLauncher.Windows.ViewModel;
 using System;
 using System.Diagnostics;

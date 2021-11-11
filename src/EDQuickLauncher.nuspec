@@ -8,10 +8,15 @@
     <owners>thakyZ</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectUrl>https://github.com/thakyZ/EDQuickLauncher</projectUrl>
-    <iconUrl>https://github.com/thakyZ/EDQuickLauncher/raw/main/src/EDQuickLauncher/Resources/ed_icon.ico</iconUrl>
+    <icon>EDQuickLauncher\Resources\logo.png</icon>
+    <setupIcon>EDQuickLauncher\Resources\logo.png</setupIcon>
     <description>Custom Launcher for Elite Dangerous</description>
+    <dependencies>
+      <group targetFramework="net6.0-windows7.0" />
+    </dependencies>
   </metadata>
   <files>
-    <file src="bin\**" target="lib\net6-windows7.0" />
+    <file src="bin\**" target="lib\net6.0-windows7.0" />
+    <file src="EDQuickLauncher\Resources\logo.png" target="EDQuickLauncher\Resources\" />
   </files>
 </package>

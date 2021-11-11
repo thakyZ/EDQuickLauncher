@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace EDQuickLauncher.Xaml.Components {
   /// <summary>
-  ///     Interaction logic for FolderEntry.xaml
+  /// Interaction logic for FolderEntry.xaml
   /// </summary>
   public partial class FolderEntry {
     public static DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string),
