@@ -1,0 +1,3 @@
+files:
+  - source: /src/EDQuickLauncher/Resources/Loc/EDQuickLauncher_Localizable.json
+    translation: /src/EDQuickLauncher/Resources/Loc/ed/ed_%two_letters_code%.json
