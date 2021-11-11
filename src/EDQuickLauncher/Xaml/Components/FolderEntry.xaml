@@ -1,0 +1,23 @@
+﻿<!--  XIVQuickLauncher - Modified Code  -->
+<!--  Copyright (C) 2021  goatcorp  -->
+<UserControl
+  x:Class="EDQuickLauncher.Xaml.Components.FolderEntry"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <DockPanel>
+    <Button
+      Width="35"
+      Margin="5,0,0,0"
+      Padding="0"
+      Click="BrowseFolder"
+      DockPanel.Dock="Right">
+      ...
+    </Button>
+    <TextBox
+      Height="Auto"
+      HorizontalAlignment="Stretch"
+      DockPanel.Dock="Right"
+      Text="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, UpdateSourceTrigger=PropertyChanged}"
+      TextChanged="TextBoxBase_OnTextChanged" />
+  </DockPanel>
+</UserControl>

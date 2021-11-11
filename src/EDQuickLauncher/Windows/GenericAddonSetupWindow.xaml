@@ -1,0 +1,78 @@
+﻿<!--  XIVQuickLauncher - Modified Code  -->
+<!--  Copyright (C) 2021  goatcorp  -->
+<Window
+  x:Class="EDQuickLauncher.Windows.GenericAddonSetupWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:components="clr-namespace:EDQuickLauncher.Xaml.Components"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  Title="{Binding GenericAddonSetupTitleLoc}"
+  Width="533.495"
+  Height="281.747"
+  Background="{DynamicResource MaterialDesignPaper}"
+  FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+  Icon="pack://application:,,,/Resources/ed_icon.ico"
+  ResizeMode="NoResize"
+  TextElement.FontWeight="Medium"
+  TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+  WindowStartupLocation="CenterScreen"
+  mc:Ignorable="d">
+  <Grid>
+    <TextBlock
+      Margin="10,10,0,0"
+      HorizontalAlignment="Left"
+      VerticalAlignment="Top"
+      Text="{Binding GenericAddonSetupDescriptionLoc}" />
+    <components:FileEntry
+      x:Name="PathEntry"
+      Width="400"
+      Margin="10,0,0,80"
+      HorizontalAlignment="Left"
+      VerticalAlignment="Center"
+      Description="Select an Addon file"
+      Filters="EXE File, *.exe;Powershell Script, *.ps1;Shell Script, *.bat" />
+    <Label
+      Width="400"
+      Margin="10,0,0,10"
+      HorizontalAlignment="Left"
+      VerticalAlignment="Center"
+      Content="{Binding CommandLineParametersLoc}" />
+    <TextBox
+      x:Name="CommandLineTextBox"
+      Width="400"
+      Margin="10,0,0,-30"
+      HorizontalAlignment="Left"
+      VerticalAlignment="Center" />
+    <CheckBox
+      x:Name="AdminCheckBox"
+      Width="400"
+      Margin="10,0,0,-100"
+      HorizontalAlignment="Left"
+      VerticalAlignment="Center"
+      Checked="AdminCheckBox_OnChecked"
+      Content="{Binding RunAsAdminLoc}"
+      Unchecked="AdminCheckBox_OnUnchecked" />
+    <CheckBox
+      x:Name="RunOnCloseCheckBox"
+      Width="400"
+      Margin="10,0,0,-140"
+      HorizontalAlignment="Left"
+      VerticalAlignment="Center"
+      Content="{Binding RunOnCloseLoc}" />
+    <CheckBox
+      x:Name="KillCheckBox"
+      Width="400"
+      Margin="10,0,0,-180"
+      HorizontalAlignment="Left"
+      VerticalAlignment="Center"
+      Content="{Binding KillAfterCloseLoc}" />
+    <Button
+      Width="79"
+      Margin="0,0,10,10"
+      HorizontalAlignment="Right"
+      VerticalAlignment="Bottom"
+      Click="NextButton_Click"
+      Content="{Binding OkLoc}" />
+  </Grid>
+</Window>

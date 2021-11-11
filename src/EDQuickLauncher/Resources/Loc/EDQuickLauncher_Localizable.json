@@ -1,0 +1,246 @@
+{
+  "AdditionalArguments": {
+    "message": "Additional launch arguments",
+    "description": "SettingsControlViewModel.SetupLoc"
+  },
+  "AddNew": {
+    "message": "Add new",
+    "description": "SettingsControlViewModel.SetupLoc"
+  },
+  "AdminCheck": {
+    "message": "EDQuickLauncher and/or FINAL FANTASY XIV are set to run as administrator.\nThis can cause various issues, including addons failing to launch and hotkey applications failing to respond.\n\nDo you want to fix this issue automatically?",
+    "description": "ProblemCheck.RunCheck"
+  },
+  "AdminCheckNag": {
+    "message": "EDQuickLauncher is running as administrator.\nThis can cause various issues, including addons failing to launch and hotkey applications failing to respond.\n\nPlease take care to avoid running EDQuickLauncher as admin.",
+    "description": "ProblemCheck.RunCheck"
+  },
+  "AutoLaunchAddNewToolTip": {
+    "message": "Add a new Auto-Start entry that allows you to launch any program.",
+    "description": "SettingsControlViewModel.SetupLoc"
+  },
+  "AutoLaunchHint": {
+    "message": "These are applications that are started as soon as the game has started.",
+    "description": "SettingsControlViewModel.SetupLoc"
+  },
+  "AutoLaunchIntro": {
+    "message": "You are enabling Auto-Launch.\nThis means that EDQuickLauncher will always log you in with the current account and you will not see this window.\n\nTo change settings and accounts, you have to hold the shift button on your keyboard while clicking the EDQuickLauncher icon.",
+    "description": "MainWindow.LoginButton_Click"
+  },
+  "UpdateAutoLaunchHint": {
+    "message": "Hold the shift key to change settings!",
+    "description": "UpdateLoadingDialogViewModel.SetupLoc"
+  },
+  "BinaryNotPresentError": {
+    "message": "Could not find the game executable.\nThis might be caused by your antivirus. You may have to reinstall the game.",
+    "description": "Launcher.LaunchGame"
+  },
+  "Cancel": {
+    "message": "Cancel",
+    "description": "MainWindowViewModel.SetupLoc"
+  },
+  "ChangelogThanks": {
+    "message": "EDQuickLauncher is free, open-source software supported by a variety of people from all over the world.\nThank you for sticking around!",
+    "description": "ChangeLogWindowViewModel.SetupLoc"
+  },
+  "ChooseGamePath": {
+    "message": "Please select the folder your game is installed in.\r\nIt should contain the folders \"Products\".",
+    "description": "SettingsControlViewModel.SetupLoc"
+  },
+  "ChooseGamePathFTS": {
+    "message": "Please select the folder your game is installed in.\r\nIt should contain the folders \"Products\".",
+    "description": "FirstTimeSetupViewModel.SetupLoc"
+  },
+  "ChooseLauncherLanguage": {
+    "message": "Please select the launcher language, requires a restart.",
+    "description": "SettingsControlViewModel.SetupLoc"
+  },
+  "CommandLineParameters": {
+    "message": "Command line parameters",
+    "description": "GenericAddonSetupWindowViewModel.SetupLoc"
+  },
+  "Credits": {
+    "message": "Made by thakyZ. Special thanks to the GoatCorp team!\r\n\r\nAny issues or requests? Join the Discord or create an issue on GitHub!",
+    "description": "SettingsControlViewModel.SetupLoc"
+  },
+  "Delete": {
+    "message": "Delete",
+    "description": "SettingsControlViewModel.SetupLoc"
+  },
+  "DisabledPlugin": {
+    "message": " (disabled)",
+    "description": "SettingsControl.ReloadPluginList"
+  },
+  "EmailInfo": {
+    "message": "EDQuickLauncher is free, open-source software - it doesn't use any telemetry or analysis tools to collect your data, but it would help a lot if you could send me a short email with your operating system, why you use EDQuickLauncher and, if needed, any criticism or things we can do better. Your email will be deleted immediately after evaluation and I won't ever contact you.\n\nThank you very much for using EDQuickLauncher!",
+    "description": "ChangeLogWindowViewModel.SetupLoc"
+  },
+  "ErrorExplanation": {
+    "message": "An error in EDQuickLauncher occured. Please consult the FAQ. If this issue persists, please report\r\nit on GitHub by clicking the button below, describing the issue and copying the text in the box.",
+    "description": "ErrorWindowViewModel.SetupLoc"
+  },
+  "EverythingIsFuckedMessage": {
+    "message": "Certain essential game files were modified/broken by a third party and the game can neither update nor start.\nYou have to reinstall the game to continue.\n\nIf this keeps happening, please contact us via Discord.",
+    "description": "<StartLogin>d__19.MoveNext"
+  },
+  "GameIsOpenError": {
+    "message": "The game and/or the official launcher are open. EDQuickLauncher cannot patch the game if this is the case.\nPlease close the official launcher and try again.",
+    "description": "MainWindow.HandleBootCheck"
+  },
+  "GamePathEmptyError": {
+    "message": "Please select a game path.",
+    "description": "FirstTimeSetup.NextButton_Click"
+  },
+  "GamePathInvalidError": {
+    "message": "The folder you selected has no Elite: Dangerous installation.",
+    "description": "FirstTimeSetup.NextButton_Click"
+  },
+  "GamePathSafeguardError": {
+    "message": "Please do not select the \"Products\", \"elite-dangerous-64\" or \"elite-dangerous-odyssey-64\" folder of your Elite: Dangerous installation, and choose the folder that contains these instead.",
+    "description": "FirstTimeSetup.NextButton_Click"
+  },
+  "GenericAddonSetupDescription": {
+    "message": "Please select the application that should be started, any additional parameters and\r\nif it should be ran as admin.",
+    "description": "GenericAddonSetupWindowViewModel.SetupLoc"
+  },
+  "GenericAddonSetupTitle": {
+    "message": "Configure Auto-Start",
+    "description": "GenericAddonSetupWindowViewModel.SetupLoc"
+  },
+  "HowToHint": {
+    "message": "How do I set this up?",
+    "description": "ChatChannelSetupViewModel.SetupLoc"
+  },
+  "JoinDiscord": {
+    "message": "Join Discord",
+    "description": "ChangeLogWindowViewModel.SetupLoc"
+  },
+  "KillAfterCloseLoc": {
+    "message": "Kill after game closes",
+    "description": "GenericAddonSetupWindowViewModel.SetupLoc"
+  },
+  "LauncherLanguageHelpCtaLoc": {
+    "message": "Notice any mistakes? You can help out translating the launcher! Just click here!",
+    "description": "SettingsControlViewModel.SetupLoc"
+  },
+  "LauncherLanguageNotice": {
+    "message": "A restart is required to apply the launcher language setting.",
+    "description": "SettingsControlViewModel.SetupLoc"
+  },
+  "License": {
+    "message": "Licensed under MIT. Click here for more.",
+    "description": "SettingsControlViewModel.SetupLoc"
+  },
+  "ExpansionBoxAutoLaunch": {
+    "message": "Log in automatically",
+    "description": "MainWindowViewModel.SetupLoc"
+  },
+  "ExpansionBoxLaunch": {
+    "message": "Launch",
+    "description": "MainWindowViewModel.SetupLoc"
+  },
+  "ExpansionBoxLaunchTooltip": {
+    "message": "Launch with the provided credentials",
+    "description": "MainWindowViewModel.SetupLoc"
+  },
+  "LoginBoxOtp": {
+    "message": "Use One-Time-Passwords",
+    "description": "MainWindowViewModel.SetupLoc"
+  },
+  "MultiboxDeniedWarning": {
+    "message": "You can't launch more than two instances of the game by default.\n\nPlease check if there is an instance of the game that did not close correctly.",
+    "description": "Launcher.LaunchGame"
+  },
+  "NativeLauncherError": {
+    "message": "Could not start the game correctly. Please report this error.\n\nHRESULT: 0x{0}",
+    "description": "Launcher.LaunchGame"
+  },
+  "NewsDlFailed": {
+    "message": "Could not download news data.",
+    "description": "MainWindow.<SetupHeadlines>b__10_3"
+  },
+  "NewsLoading": {
+    "message": "Loading...",
+    "description": "MainWindow..ctor"
+  },
+  "Next": {
+    "message": "Next",
+    "description": "FirstTimeSetupViewModel.SetupLoc"
+  },
+  "OK": {
+    "message": "OK",
+    "description": "ChangeLogWindowViewModel.SetupLoc"
+  },
+  "OpenFaq": {
+    "message": "Open FAQ",
+    "description": "ErrorWindowViewModel.SetupLoc"
+  },
+  "Remove": {
+    "message": "Remove",
+    "description": "AccountSwitcherViewModel.SetupLoc"
+  },
+  "ReportError": {
+    "message": "Report error",
+    "description": "ErrorWindowViewModel.SetupLoc"
+  },
+  "RunAsAdminLoc": {
+    "message": "Run as admin",
+    "description": "GenericAddonSetupWindowViewModel.SetupLoc"
+  },
+  "RunOnCloseLoc": {
+    "message": "Run on game close",
+    "description": "GenericAddonSetupWindowViewModel.SetupLoc"
+  },
+  "SaveSettings": {
+    "message": "Save Settings",
+    "description": "SettingsControlViewModel.SetupLoc"
+  },
+  "SendEmail": {
+    "message": "Send Email",
+    "description": "ChangeLogWindowViewModel.SetupLoc"
+  },
+  "Settings": {
+    "message": "Settings",
+    "description": "MainWindowViewModel.SetupLoc"
+  },
+  "SettingsAbout": {
+    "message": "About",
+    "description": "SettingsControlViewModel.SetupLoc"
+  },
+  "SettingsAutoLaunch": {
+    "message": "Auto-Launch",
+    "description": "SettingsControlViewModel.SetupLoc"
+  },
+  "SettingsGame": {
+    "message": "Game",
+    "description": "SettingsControlViewModel.SetupLoc"
+  },
+  "Toggle": {
+    "message": "Toggle",
+    "description": "SettingsControlViewModel.SetupLoc"
+  },
+  "UpdateCheckMsg": {
+    "message": "Checking for updates...",
+    "description": "UpdateLoadingDialogViewModel.SetupLoc"
+  },
+  "updatefailureerror": {
+    "message": "EDQuickLauncher failed to check for updates. This may be caused by connectivity issues to GitHub. Wait a few minutes and try again.\nDisable your VPN, if you have one.\nIf it continues to fail after several minutes, please join the discord linked on GitHub for support.",
+    "description": "<Run>d__0.MoveNext"
+  },
+  "UpdateNotice": {
+    "message": "EDQuickLauncher was updated to version {0}.",
+    "description": "ChangeLogWindowViewModel.SetupLoc"
+  },
+  "EliteDangerousLauncher": {
+    "message": "Elite: Dangerous Launcher",
+    "description": "MainWindowViewModel.SetupLoc"
+  },
+  "EliteDangerous": {
+    "message": "Elite: Dangerous",
+    "description": "MainWindowViewModel.SetupLoc"
+  },
+  "EliteDangerousExpansion": {
+    "message": "Elite: Dangerous Odyssey",
+    "description": "MainWindowViewModel.SetupLoc"
+  }
+}
