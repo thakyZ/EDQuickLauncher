@@ -30,7 +30,7 @@ namespace EDQuickLauncher.Windows {
       DataContext = new MainWindowViewModel();
 
 #if !XL_NOAUTOUPDATE
-      Title += " v" + Util.GetAssemblyVersion ();
+      Title += " v" + Util.GetAssemblyVersion();
 #else
       Title += " " + Util.GetGitHash();
 #endif
@@ -116,7 +116,7 @@ namespace EDQuickLauncher.Windows {
 
     private void LaunchButton_Click(object sender, RoutedEventArgs e) {
       if (AutoLaunchCheckBox.IsChecked == true && App.Settings.HasShownAutoLaunchDisclaimer.GetValueOrDefault(false) == false) {
-        CustomMessageBox.Show(Loc.Localize("AutoLoginIntro", "You are enabling Auto-Login.\nThis means that XIVLauncher will always log you in with the current account and you will not see this window.\n\nTo change settings and accounts, you have to hold the shift button on your keyboard while clicking the XIVLauncher icon."), "XIVLauncher");
+        CustomMessageBox.Show(Loc.Localize("AutoLaunchIntro", "You are enabling Auto-Launch.\nThis means that EDQuickLauncher will always log you in with the current account and you will not see this window.\n\nTo change settings and accounts, you have to hold the shift button on your keyboard while clicking the EDQuickLauncher icon."), "EDQuickLauncher");
         App.Settings.HasShownAutoLaunchDisclaimer = true;
       }
 

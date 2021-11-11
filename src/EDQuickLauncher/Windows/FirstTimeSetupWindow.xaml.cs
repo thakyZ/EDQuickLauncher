@@ -1,6 +1,7 @@
 ﻿/* XIVQuickLauncher - Modified Code
  * Copyright (C) 2021  goatcorp
  */
+
 using CheapLoc;
 using EDQuickLauncher.Windows.ViewModel;
 using IWshRuntimeLibrary;
@@ -9,6 +10,7 @@ using System.IO;
 using System.Windows;
 
 namespace EDQuickLauncher.Windows {
+
   /// <summary>
   ///     Interaction logic for FirstTimeSetup.xaml
   /// </summary>
@@ -27,8 +29,8 @@ namespace EDQuickLauncher.Windows {
 
 #if XL_NOAUTOUPDATE
       CustomMessageBox.Show(
-        $"You're running an unsupported version of XIVLauncher.\n\nThis can be unsafe and a danger to your SE account. If you have not gotten this unsupported version on purpose, please reinstall a clean version from {App.RepoUrl}/releases.",
-        "XIVLauncher Problem", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        $"You're running an unsupported version of EDQuickLauncher.\n\nThis can be unsafe and a danger to your SE account. If you have not gotten this unsupported version on purpose, please reinstall a clean version from {App.RepoUrl}/releases.",
+        "EDQuickLauncher Problem", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 #endif
     }
 
@@ -48,13 +50,13 @@ namespace EDQuickLauncher.Windows {
         }
 
         if (!Util.LetChoosePath(GamePathEntry.Text)) {
-          CustomMessageBox.Show(Loc.Localize("GamePathSafeguardError", "Please do not select the \"game\" or \"boot\" folder of your FFXIV installation, and choose the folder that contains these instead."), "Error",
+          CustomMessageBox.Show(Loc.Localize("GamePathSafeguardError", "Please do not select the \"Products\", \"elite-dangerous-64\" or \"elite-dangerous-odyssey-64\" folder of your Elite: Dangerous installation, and choose the folder that contains these instead."), "Error",
             MessageBoxButton.OK, MessageBoxImage.Error);
           return;
         }
 
-        if (!Util.IsValidFfxivPath(GamePathEntry.Text)) {
-          CustomMessageBox.Show(Loc.Localize("GamePathInvalidError", "The folder you selected has no FFXIV installation.\nXIVLauncher will install FFXIV the first time you log in."), "XIVLauncher",
+        if (!Util.IsValidElitePath(GamePathEntry.Text)) {
+          CustomMessageBox.Show(Loc.Localize("GamePathInvalidError", "The folder you selected has no Elite: Dangerous installation."), "EDQuickLauncher",
             MessageBoxButton.OK, MessageBoxImage.Information);
         }
       }

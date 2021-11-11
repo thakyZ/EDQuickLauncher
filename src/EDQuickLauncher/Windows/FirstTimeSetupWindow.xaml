@@ -7,7 +7,7 @@
   xmlns:components="clr-namespace:EDQuickLauncher.Xaml.Components"
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  Title="XIVLauncher Setup"
+  Title="EDQuickLauncher Setup"
   Width="450"
   Background="{DynamicResource MaterialDesignPaper}"
   FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
@@ -25,12 +25,17 @@
       BorderThickness="0"
       IsEnabled="True">
       <TabControl.ItemContainerStyle>
-        <Style TargetType="{x:Type TabItem}">
-          <Setter Property="Visibility" Value="Collapsed" />
+        <Style
+          TargetType="{x:Type TabItem}">
+          <Setter
+            Property="Visibility"
+            Value="Collapsed" />
         </Style>
       </TabControl.ItemContainerStyle>
-      <TabItem Header="Path">
-        <StackPanel Margin="10,0,0,0">
+      <TabItem
+        Header="Path">
+        <StackPanel
+          Margin="10,0,0,0">
           <TextBlock
             Margin="0,10,0,10"
             HorizontalAlignment="Left"

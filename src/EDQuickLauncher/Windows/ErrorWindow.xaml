@@ -7,7 +7,7 @@
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  Title="XIVLauncher Error"
+  Title="EDQuickLauncher Error"
   Width="598"
   Height="295"
   Background="{DynamicResource MaterialDesignPaper}"
@@ -29,7 +29,8 @@
         x:Name="ContextTextBlock"
         Margin="10,10,10,0"
         Foreground="{DynamicResource MaterialDesignBody}" />
-      <StackPanel Orientation="Horizontal">
+      <StackPanel
+        Orientation="Horizontal">
         <RichTextBox
           x:Name="ExceptionTextBox"
           Width="510"
@@ -42,8 +43,11 @@
           SpellCheck.IsEnabled="False"
           VerticalScrollBarVisibility="Auto">
           <RichTextBox.Resources>
-            <Style TargetType="{x:Type Border}">
-              <Setter Property="CornerRadius" Value="4" />
+            <Style
+              TargetType="{x:Type Border}">
+              <Setter
+                Property="CornerRadius"
+                Value="4" />
             </Style>
           </RichTextBox.Resources>
         </RichTextBox>
@@ -67,8 +71,10 @@
         Margin="0,0,5,0"
         HorizontalAlignment="Left"
         Style="{DynamicResource MaterialDesignFlatButton}">
-        <StackPanel Orientation="Horizontal">
-          <materialDesign:PackIcon Kind="Discord" />
+        <StackPanel
+          Orientation="Horizontal">
+          <materialDesign:PackIcon
+            Kind="Discord" />
           <TextBlock
             Margin="8,0,0,0"
             VerticalAlignment="Center"
@@ -80,8 +86,10 @@
         Margin="0,0,5,0"
         HorizontalAlignment="Left"
         Style="{DynamicResource MaterialDesignFlatButton}">
-        <StackPanel Orientation="Horizontal">
-          <materialDesign:PackIcon Kind="Information" />
+        <StackPanel
+          Orientation="Horizontal">
+          <materialDesign:PackIcon
+            Kind="Information" />
           <TextBlock
             Margin="8,0,0,0"
             VerticalAlignment="Center"
@@ -94,8 +102,10 @@
         HorizontalAlignment="Left"
         Click="GitHubButton_OnClick"
         Style="{DynamicResource MaterialDesignFlatButton}">
-        <StackPanel Orientation="Horizontal">
-          <materialDesign:PackIcon Kind="GithubCircle" />
+        <StackPanel
+          Orientation="Horizontal">
+          <materialDesign:PackIcon
+            Kind="GithubCircle" />
           <TextBlock
             Margin="8,0,0,0"
             VerticalAlignment="Center"

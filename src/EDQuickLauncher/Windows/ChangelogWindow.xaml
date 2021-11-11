@@ -7,7 +7,7 @@
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  Title="XIVLauncher Update"
+  Title="EDQuickLauncher Update"
   Height="Auto"
   MaxWidth="640"
   Background="{DynamicResource MaterialDesignPaper}"
@@ -26,7 +26,8 @@
         Foreground="{DynamicResource MaterialDesignBody}"
         Text="{Binding UpdateNoticeLoc}"
         TextWrapping="Wrap" />
-      <StackPanel Orientation="Horizontal">
+      <StackPanel
+        Orientation="Horizontal">
         <TextBlock
           x:Name="ChangeLogText"
           Height="Auto"
@@ -60,8 +61,10 @@
         Click="EmailButton_OnClick"
         Style="{DynamicResource MaterialDesignFlatButton}"
         Visibility="Collapsed">
-        <StackPanel Orientation="Horizontal">
-          <materialDesign:PackIcon Kind="Email" />
+        <StackPanel
+          Orientation="Horizontal">
+          <materialDesign:PackIcon
+            Kind="Email" />
           <TextBlock
             Margin="8,0,0,0"
             VerticalAlignment="Center"
@@ -73,8 +76,10 @@
         Margin="0,0,5,0"
         HorizontalAlignment="Left"
         Style="{DynamicResource MaterialDesignFlatButton}">
-        <StackPanel Orientation="Horizontal">
-          <materialDesign:PackIcon Kind="Discord" />
+        <StackPanel
+          Orientation="Horizontal">
+          <materialDesign:PackIcon
+            Kind="Discord" />
           <TextBlock
             Margin="8,0,0,0"
             VerticalAlignment="Center"

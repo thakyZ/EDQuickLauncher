@@ -1,6 +1,7 @@
 /* XIVQuickLauncher - Modified Code
  * Copyright (C) 2021  goatcorp
  */
+
 using CheapLoc;
 using EDQuickLauncher.Windows;
 using Serilog;
@@ -18,6 +19,7 @@ using System.Threading;
 using System.Windows;
 
 namespace EDQuickLauncher.Game {
+
   public class Launcher {
     private const int STEAM_APP_ID = 359320;
 
@@ -42,10 +44,12 @@ namespace EDQuickLauncher.Game {
             workingDir = Path.Combine(workingDir, "Products", "elite-dangerous-64");
             exePath = Path.Combine(workingDir, "EliteDangerous64");
             break;
+
           case 2:
             workingDir = Path.Combine(workingDir, "Products", "elite-dangerous-odyssey-64");
             exePath = Path.Combine(workingDir, "EliteDangerous64");
             break;
+
           default:
             exePath = Path.Combine(gamePath.FullName, "EDLaunch.exe");
             break;
@@ -97,7 +101,7 @@ namespace EDQuickLauncher.Game {
           }
           game.Start();
         } catch (Win32Exception ex) {
-          CustomMessageBox.Show(String.Format(Loc.Localize("NativeLauncherError", "Could not start the game correctly. Please report this error.\n\nHRESULT: 0x{0}"), ex.HResult.ToString("X")), "XIVLauncher Error", MessageBoxButton.OK, MessageBoxImage.Error);
+          CustomMessageBox.Show(String.Format(Loc.Localize("NativeLauncherError", "Could not start the game correctly. Please report this error.\n\nHRESULT: 0x{0}"), ex.HResult.ToString("X")), "EDQuickLauncher Error", MessageBoxButton.OK, MessageBoxImage.Error);
           Log.Error(ex, $"Launcher error; {ex.HResult}: {ex.Message}");
           return null;
         }

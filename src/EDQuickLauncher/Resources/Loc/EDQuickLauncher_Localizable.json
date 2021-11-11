@@ -8,7 +8,7 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "AdminCheck": {
-    "message": "EDQuickLauncher and/or FINAL FANTASY XIV are set to run as administrator.\nThis can cause various issues, including addons failing to launch and hotkey applications failing to respond.\n\nDo you want to fix this issue automatically?",
+    "message": "EDQuickLauncher is set to run as administrator.\nThis can cause various issues, including addons failing to launch and hotkey applications failing to respond.\n\nDo you want to fix this issue automatically?",
     "description": "ProblemCheck.RunCheck"
   },
   "AdminCheckNag": {

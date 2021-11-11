@@ -1,6 +1,7 @@
 ﻿/* XIVQuickLauncher - Modified Code
  * Copyright (C) 2021  goatcorp
  */
+
 using System;
 using System.Globalization;
 using System.IO;
@@ -18,6 +19,7 @@ using EDQuickLauncher.Settings.Parsers;
 using EDQuickLauncher.Windows;
 
 namespace EDQuickLauncher {
+
   /// <summary>
   ///     Interaction logic for App.xaml
   /// </summary>
@@ -98,7 +100,7 @@ namespace EDQuickLauncher {
 #endif
 
       Log.Information(
-        $"XIVLauncher started as {release}");
+        $"EDQuickLauncher started as {release}");
 
 #if !XL_NOAUTOUPDATE
 
@@ -115,8 +117,8 @@ namespace EDQuickLauncher {
           var result = updateMgr.Run(EnvironmentSettings.IsPreRelease);
         } catch (Exception ex) {
           MessageBox.Show(
-            "XIVLauncher could not contact the update server. Please check your internet connection or try again.\n\n" + ex,
-            "XIVLauncher Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            "EDQuickLauncher could not contact the update server. Please check your internet connection or try again.\n\n" + ex,
+            "EDQuickLauncher Error", MessageBoxButton.OK, MessageBoxImage.Error);
           Environment.Exit(0);
         }
       }

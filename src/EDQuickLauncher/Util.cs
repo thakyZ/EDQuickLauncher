@@ -47,7 +47,7 @@ namespace EDQuickLauncher {
       return fvi.FileVersion;
     }
 
-    public static bool IsValidFfxivPath(string path) => !String.IsNullOrEmpty(path) && Directory.Exists(Path.Combine(path, "Products")) && Directory.Exists(Path.Combine(path, "Products", "elite-dangerous-64"));
+    public static bool IsValidElitePath(string path) => !String.IsNullOrEmpty(path) && Directory.Exists(Path.Combine(path, "Products")) && Directory.Exists(Path.Combine(path, "Products", "elite-dangerous-64"));
 
     public static bool LetChoosePath(string path) {
       if (String.IsNullOrEmpty(path))
@@ -58,7 +58,7 @@ namespace EDQuickLauncher {
       return di.Name != "Products" && di.Name != "elite-dangerous-64" && di.Name != "elite-dangerous-odyssey-64";
     }
 
-    private static readonly string DefaultPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "SquareEnix\\FINAL FANTASY XIV - A Realm Reborn");
+    private static readonly string DefaultPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Steam\\steamapps\\common\\Elite Dangerous");
 
     private static readonly string[] PathsToTry = SelectEachDrive().Concat(new List<string> {
       Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.ProgramFilesX86), "Steam\\steamapps\\common\\Elite Dangerous"),
@@ -81,7 +81,7 @@ namespace EDQuickLauncher {
 
     public static string TryGamePaths() {
       foreach (var path in PathsToTry) {
-        if (Directory.Exists(path) && IsValidFfxivPath(path))
+        if (Directory.Exists(path) && IsValidElitePath(path))
           return path;
       }
 
