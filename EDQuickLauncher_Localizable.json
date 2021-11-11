@@ -78,9 +78,9 @@
   "EnableVr": {
     "message": "Enable VR",
     "description": "MainWindowViewModel.SetupLoc"
-  }
+  },
   "ErrorExplanation": {
-    "message": "An error in EDQuickLauncher occured. Please consult the FAQ. If this issue persists, please report\r\nit on GitHub by clicking the button below, describing the issue and copying the text in the box.",
+    "message": "An error in EDQuickLauncher occurred. Please consult the FAQ. If this issue persists, please report\r\nit on GitHub by clicking the button below, describing the issue and copying the text in the box.",
     "description": "ErrorWindowViewModel.SetupLoc"
   },
   "EverythingIsFuckedMessage": {
@@ -223,7 +223,7 @@
     "message": "Checking for updates...",
     "description": "UpdateLoadingDialogViewModel.SetupLoc"
   },
-  "updatefailureerror": {
+  "UpdateFailureError": {
     "message": "EDQuickLauncher failed to check for updates. This may be caused by connectivity issues to GitHub. Wait a few minutes and try again.\nDisable your VPN, if you have one.\nIf it continues to fail after several minutes, please join the discord linked on GitHub for support.",
     "description": "<Run>d__0.MoveNext"
   },
