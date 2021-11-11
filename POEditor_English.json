@@ -1,0 +1,490 @@
+[
+  {
+    "term": "AdditionalArguments",
+    "definition": "Additional launch arguments",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControlViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "AddNew",
+    "definition": "Add new",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControlViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "AdminCheck",
+    "definition": "EDQuickLauncher is set to run as administrator.\nThis can cause various issues, including addons failing to launch and hotkey applications failing to respond.\n\nDo you want to fix this issue automatically?",
+    "content": "",
+    "term_plural": "",
+    "reference": "ProblemCheck.RunCheck",
+    "comment": ""
+  },
+  {
+    "term": "AdminCheckNag",
+    "definition": "EDQuickLauncher is running as administrator.\nThis can cause various issues, including addons failing to launch and hotkey applications failing to respond.\n\nPlease take care to avoid running EDQuickLauncher as admin.",
+    "content": "",
+    "term_plural": "",
+    "reference": "ProblemCheck.RunCheck",
+    "comment": ""
+  },
+  {
+    "term": "AutoLaunchAddNewToolTip",
+    "definition": "Add a new Auto-Start entry that allows you to launch any program.",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControlViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "AutoLaunchHint",
+    "definition": "These are applications that are started as soon as the game has started.",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControlViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "AutoLaunchIntro",
+    "definition": "You are enabling Auto-Launch.\nThis means that EDQuickLauncher will always log you in with the current account and you will not see this window.\n\nTo change settings and accounts, you have to hold the shift button on your keyboard while clicking the EDQuickLauncher icon.",
+    "content": "",
+    "term_plural": "",
+    "reference": "MainWindow.LoginButton_Click",
+    "comment": ""
+  },
+  {
+    "term": "UpdateAutoLaunchHint",
+    "definition": "Hold the shift key to change settings!",
+    "content": "",
+    "term_plural": "",
+    "reference": "UpdateLoadingDialogViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "BinaryNotPresentError",
+    "definition": "Could not find the game executable.\nThis might be caused by your antivirus. You may have to reinstall the game.",
+    "content": "",
+    "term_plural": "",
+    "reference": "Launcher.LaunchGame",
+    "comment": ""
+  },
+  {
+    "term": "Cancel",
+    "definition": "Cancel",
+    "content": "",
+    "term_plural": "",
+    "reference": "MainWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "ChangelogThanks",
+    "definition": "EDQuickLauncher is free, open-source software supported by a variety of people from all over the world.\nThank you for sticking around!",
+    "content": "",
+    "term_plural": "",
+    "reference": "ChangeLogWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "ChooseGamePath",
+    "definition": "Please select the folder your game is installed in.\r\nIt should contain the folders \"Products\".",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControlViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "ChooseGamePathFTS",
+    "definition": "Please select the folder your game is installed in.\r\nIt should contain the folders \"Products\".",
+    "content": "",
+    "term_plural": "",
+    "reference": "FirstTimeSetupViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "ChooseLauncherLanguage",
+    "definition": "Please select the launcher language, requires a restart.",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControlViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "CommandLineParameters",
+    "definition": "Command line parameters",
+    "content": "",
+    "term_plural": "",
+    "reference": "GenericAddonSetupWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "Credits",
+    "definition": "Made by thakyZ. Special thanks to the GoatCorp team!\r\n\r\nAny issues or requests? Join the Discord or create an issue on GitHub!",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControlViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "Delete",
+    "definition": "Delete",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControlViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "DisabledPlugin",
+    "definition": " (disabled)",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControl.ReloadPluginList",
+    "comment": ""
+  },
+  {
+    "term": "EmailInfo",
+    "definition": "EDQuickLauncher is free, open-source software - it doesn't use any telemetry or analysis tools to collect your data, but it would help a lot if you could send me a short email with your operating system, why you use EDQuickLauncher and, if needed, any criticism or things we can do better. Your email will be deleted immediately after evaluation and I won't ever contact you.\n\nThank you very much for using EDQuickLauncher!",
+    "content": "",
+    "term_plural": "",
+    "reference": "ChangeLogWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "EnableVr",
+    "definition": "Enable VR",
+    "content": "",
+    "term_plural": "",
+    "reference": "MainWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "ErrorExplanation",
+    "definition": "An error in EDQuickLauncher occurred. Please consult the FAQ. If this issue persists, please report\r\nit on GitHub by clicking the button below, describing the issue and copying the text in the box.",
+    "content": "",
+    "term_plural": "",
+    "reference": "ErrorWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "EverythingIsFuckedMessage",
+    "definition": "Certain essential game files were modified/broken by a third party and the game can neither update nor start.\nYou have to reinstall the game to continue.\n\nIf this keeps happening, please contact us via Discord.",
+    "content": "",
+    "term_plural": "",
+    "reference": "<StartLogin>d__19.MoveNext",
+    "comment": ""
+  },
+  {
+    "term": "GameIsOpenError",
+    "definition": "The game and/or the official launcher are open. EDQuickLauncher cannot patch the game if this is the case.\nPlease close the official launcher and try again.",
+    "content": "",
+    "term_plural": "",
+    "reference": "MainWindow.HandleBootCheck",
+    "comment": ""
+  },
+  {
+    "term": "GamePathEmptyError",
+    "definition": "Please select a game path.",
+    "content": "",
+    "term_plural": "",
+    "reference": "FirstTimeSetup.NextButton_Click",
+    "comment": ""
+  },
+  {
+    "term": "GamePathInvalidError",
+    "definition": "The folder you selected has no Elite: Dangerous installation.",
+    "content": "",
+    "term_plural": "",
+    "reference": "FirstTimeSetup.NextButton_Click",
+    "comment": ""
+  },
+  {
+    "term": "GamePathSafeguardError",
+    "definition": "Please do not select the \"Products\", \"elite-dangerous-64\" or \"elite-dangerous-odyssey-64\" folder of your Elite: Dangerous installation, and choose the folder that contains these instead.",
+    "content": "",
+    "term_plural": "",
+    "reference": "FirstTimeSetup.NextButton_Click",
+    "comment": ""
+  },
+  {
+    "term": "GenericAddonSetupDescription",
+    "definition": "Please select the application that should be started, any additional parameters and\r\nif it should be ran as admin.",
+    "content": "",
+    "term_plural": "",
+    "reference": "GenericAddonSetupWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "GenericAddonSetupTitle",
+    "definition": "Configure Auto-Start",
+    "content": "",
+    "term_plural": "",
+    "reference": "GenericAddonSetupWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "HowToHint",
+    "definition": "How do I set this up?",
+    "content": "",
+    "term_plural": "",
+    "reference": "ChatChannelSetupViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "JoinDiscord",
+    "definition": "Join Discord",
+    "content": "",
+    "term_plural": "",
+    "reference": "ChangeLogWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "KillAfterCloseLoc",
+    "definition": "Kill after game closes",
+    "content": "",
+    "term_plural": "",
+    "reference": "GenericAddonSetupWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "LauncherLanguageHelpCtaLoc",
+    "definition": "Notice any mistakes? You can help out translating the launcher! Just click here!",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControlViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "LauncherLanguageNotice",
+    "definition": "A restart is required to apply the launcher language setting.",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControlViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "License",
+    "definition": "Licensed under MIT. Click here for more.",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControlViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "ExpansionBoxAutoLaunch",
+    "definition": "Log in automatically",
+    "content": "",
+    "term_plural": "",
+    "reference": "MainWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "ExpansionBoxLaunch",
+    "definition": "Launch",
+    "content": "",
+    "term_plural": "",
+    "reference": "MainWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "ExpansionBoxLaunchTooltip",
+    "definition": "Launch with the provided credentials",
+    "content": "",
+    "term_plural": "",
+    "reference": "MainWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "MultiboxDeniedWarning",
+    "definition": "You can't launch more than two instances of the game by default.\n\nPlease check if there is an instance of the game that did not close correctly.",
+    "content": "",
+    "term_plural": "",
+    "reference": "Launcher.LaunchGame",
+    "comment": ""
+  },
+  {
+    "term": "NativeLauncherError",
+    "definition": "Could not start the game correctly. Please report this error.\n\nHRESULT: 0x{0}",
+    "content": "",
+    "term_plural": "",
+    "reference": "Launcher.LaunchGame",
+    "comment": ""
+  },
+  {
+    "term": "NewsDlFailed",
+    "definition": "Could not download news data.",
+    "content": "",
+    "term_plural": "",
+    "reference": "MainWindow.<SetupHeadlines>b__10_3",
+    "comment": ""
+  },
+  {
+    "term": "NewsLoading",
+    "definition": "Loading...",
+    "content": "",
+    "term_plural": "",
+    "reference": "MainWindow..ctor",
+    "comment": ""
+  },
+  {
+    "term": "Next",
+    "definition": "Next",
+    "content": "",
+    "term_plural": "",
+    "reference": "FirstTimeSetupViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "OK",
+    "definition": "OK",
+    "content": "",
+    "term_plural": "",
+    "reference": "ChangeLogWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "OpenFaq",
+    "definition": "Open FAQ",
+    "content": "",
+    "term_plural": "",
+    "reference": "ErrorWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "Remove",
+    "definition": "Remove",
+    "content": "",
+    "term_plural": "",
+    "reference": "AccountSwitcherViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "ReportError",
+    "definition": "Report error",
+    "content": "",
+    "term_plural": "",
+    "reference": "ErrorWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "RunAsAdminLoc",
+    "definition": "Run as admin",
+    "content": "",
+    "term_plural": "",
+    "reference": "GenericAddonSetupWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "RunOnCloseLoc",
+    "definition": "Run on game close",
+    "content": "",
+    "term_plural": "",
+    "reference": "GenericAddonSetupWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "SaveSettings",
+    "definition": "Save Settings",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControlViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "SendEmail",
+    "definition": "Send Email",
+    "content": "",
+    "term_plural": "",
+    "reference": "ChangeLogWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "Settings",
+    "definition": "Settings",
+    "content": "",
+    "term_plural": "",
+    "reference": "MainWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "SettingsAbout",
+    "definition": "About",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControlViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "SettingsAutoLaunch",
+    "definition": "Auto-Launch",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControlViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "SettingsGame",
+    "definition": "Game",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControlViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "Toggle",
+    "definition": "Toggle",
+    "content": "",
+    "term_plural": "",
+    "reference": "SettingsControlViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "UpdateCheckMsg",
+    "definition": "Checking for updates...",
+    "content": "",
+    "term_plural": "",
+    "reference": "UpdateLoadingDialogViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "UpdateFailureError",
+    "definition": "EDQuickLauncher failed to check for updates. This may be caused by connectivity issues to GitHub. Wait a few minutes and try again.\nDisable your VPN, if you have one.\nIf it continues to fail after several minutes, please join the discord linked on GitHub for support.",
+    "content": "",
+    "term_plural": "",
+    "reference": "<Run>d__0.MoveNext",
+    "comment": ""
+  },
+  {
+    "term": "UpdateNotice",
+    "definition": "EDQuickLauncher was updated to version {0}.",
+    "content": "",
+    "term_plural": "",
+    "reference": "ChangeLogWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "EliteDangerousLauncher",
+    "definition": "Elite: Dangerous Launcher",
+    "content": "",
+    "term_plural": "",
+    "reference": "MainWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "EliteDangerous",
+    "definition": "Elite: Dangerous",
+    "content": "",
+    "term_plural": "",
+    "reference": "MainWindowViewModel.SetupLoc",
+    "comment": ""
+  },
+  {
+    "term": "EliteDangerousExpansion",
+    "definition": "Elite: Dangerous Odyssey",
+    "content": "",
+    "term_plural": "",
+    "reference": "MainWindowViewModel.SetupLoc",
+    "comment": ""
+  }
+]
