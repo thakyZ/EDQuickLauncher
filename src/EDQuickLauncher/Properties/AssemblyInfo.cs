@@ -11,6 +11,10 @@ using System.Runtime.InteropServices;
 // attribute to true on that type.
 
 [assembly: ComVisible(false)]
+[assembly: AssemblyCopyright("Copyright (c) 2021 Neko Boi Nick")]
+[assembly: AssemblyDescription("EDQuickLauncher is a custom launcher for Elite: Dangerous, with the ability to launch other programs alongside Elite, such as EDDiscovery!")]
+[assembly: AssemblyFileVersion("1.0.2.0")]
+[assembly: AssemblyVersion("1.0.2.0")]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM.
 
