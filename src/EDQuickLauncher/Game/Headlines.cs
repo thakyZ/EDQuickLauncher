@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using WinCopies.Util;
 using WinCopies.Linq;
 using static SharedMemory.CircularBuffer;
+using System.Xml;
 
 namespace EDQuickLauncher.Game {
 
@@ -45,7 +46,7 @@ namespace EDQuickLauncher.Game {
 
     public static async Task<Headlines> Get() {
       var tcs = new TaskCompletionSource<Headlines>();
-      var html = @"https://community.elitedangerous.com/";
+      var html = @"https://community.elitedangerous.com";
       var startDate = DateTime.Today.AddYears(1286);
 
       var web = new HtmlWeb().Load(html);
@@ -59,7 +60,7 @@ namespace EDQuickLauncher.Game {
         TempNews.AddIfNotContains(new News {
           Title = node.ChildNodes[1].ChildNodes[0].InnerText.TrimStart(),
           Date = DateTime.Parse(Converter.FirstCharToUpper(node.ChildNodes[3].ChildNodes[0].InnerText)),
-          Url = node.ChildNodes[1].ChildNodes[0].GetAttributeValue("href", ""),
+          Url = $"{html}{node.ChildNodes[1].ChildNodes[0].GetAttributeValue("href", "")}",
           Id = node.ChildNodes[1].ChildNodes[0].GetAttributeValue("href", "").Substring(12)
         });
       });
