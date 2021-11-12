@@ -16,6 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace EDQuickLauncher.Game {
@@ -55,7 +56,7 @@ namespace EDQuickLauncher.Game {
             break;
         }
 
-        var environment = new Dictionary<string, string>();
+        var enviroment = new Dictionary<string, string>();
 
         ArgumentBuilder argumentBuilder = new ArgumentBuilder()
           .Append("/Steam", "");
@@ -85,21 +86,15 @@ namespace EDQuickLauncher.Game {
           return null;
         }
 
-        Process game;
+        Task<Process> game;
         try {
           var arguments = argumentBuilder.Build();
           //game = NativeAclFix.LaunchGame(workingDir, exePath, arguments, environment);
-          game = new Process {
-            StartInfo = {
-              WorkingDirectory = workingDir,
-              FileName = exePath,
-              Arguments = arguments
-            }
-          };
-          foreach (KeyValuePair<string, string> entry in environment) {
-            game.StartInfo.EnvironmentVariables.Add(entry.Key, entry.Value);
-          }
-          game.Start();
+          game = RunProcessAsync(new ProcessStartInfo {
+            WorkingDirectory = workingDir,
+            FileName = exePath,
+            Arguments = arguments
+          }, enviroment);
         } catch (Win32Exception ex) {
           CustomMessageBox.Show(String.Format(Loc.Localize("NativeLauncherError", "Could not start the game correctly. Please report this error.\n\nHRESULT: 0x{0}"), ex.HResult.ToString("X")), "EDQuickLauncher Error", MessageBoxButton.OK, MessageBoxImage.Error);
           Log.Error(ex, $"Launcher error; {ex.HResult}: {ex.Message}");
@@ -113,38 +108,51 @@ namespace EDQuickLauncher.Game {
           Log.Error(ex, "Could not uninitialize Steam.");
         }
 
-        for (var tries = 0; tries < 30; tries++) {
-          game.Refresh();
-
-          // Something went wrong here, why even bother
-          if (game.HasExited) {
-            if (Process.GetProcessesByName("EDLaunch").Length +
-              Process.GetProcessesByName("EliteDangerous64").Length >= 2) {
-              CustomMessageBox.Show(
-                Loc.Localize("MultiboxDeniedWarning",
-                  "You can't launch more than two instances of the game by default.\n\nPlease check if there is an instance of the game that did not close correctly."),
-                "EDQuickLauncher Error", image: MessageBoxImage.Error);
-
-              return null;
-            } else {
-              throw new Exception("Game exited prematurely");
-            }
-          }
-
-          // Is the main window open? Let's wait so any addons won't run into nothing
-          if (game.MainWindowHandle == IntPtr.Zero) {
-            Thread.Sleep(1000);
-            continue;
-          }
-
-          break;
-        }
-        return game;
+        return game.Result;
       } catch (Exception ex) {
         new ErrorWindow(ex, "Your game path might not be correct. Please check in the settings.", "XG LaunchGame").ShowDialog();
       }
 
       return null;
+    }
+
+    private static Task<Process> RunProcessAsync(ProcessStartInfo startInfo, Dictionary<string, string> enviroment) {
+      var tcs = new TaskCompletionSource<Process>();
+
+      var process = new Process {
+        StartInfo = startInfo,
+        EnableRaisingEvents = true
+      };
+      foreach (KeyValuePair<string, string> entry in enviroment) {
+        process.StartInfo.EnvironmentVariables.Add(entry.Key, entry.Value);
+      }
+
+      process.Exited += (sender, args) => CatchExit(process);
+
+      process.Start();
+
+      tcs.SetResult(process);
+
+      return tcs.Task;
+    }
+
+    private static void CatchExit(Process game) {
+      game.Refresh();
+
+      // Something went wrong here, why even bother
+      if (game.HasExited) {
+        if (Process.GetProcessesByName("EDLaunch").Length +
+          Process.GetProcessesByName("EliteDangerous64").Length >= 2) {
+          CustomMessageBox.Show(
+            Loc.Localize("MultiboxDeniedWarning",
+              "You can't launch more than two instances of the game by default.\n\nPlease check if there is an instance of the game that did not close correctly."),
+            "EDQuickLauncher Error", image: MessageBoxImage.Error);
+        } else {
+          if (game.ExitCode != 0) {
+            throw new Exception("Game exited prematurely");
+          }
+        }
+      }
     }
   }
 
