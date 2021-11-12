@@ -7,16 +7,24 @@
     <authors>thakyZ, goaaats</authors>
     <owners>thakyZ</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <!--<licenseUrl>https://github.com/thakyZ/EDQuickLauncher/raw/main/src/EDQuickLauncher/Resources/LICENSE.txt</licenseUrl>-->
+    <license type="file">LICENSE.txt</license>
     <projectUrl>https://github.com/thakyZ/EDQuickLauncher</projectUrl>
-    <icon>EDQuickLauncher\Resources\logo.png</icon>
-    <setupIcon>EDQuickLauncher\Resources\logo.png</setupIcon>
+    <icon>logo.png</icon>
+    <repository type="git" url="https://github.com/thakyZ/EDQuickLauncher" branch="main" />
+    <iconUrl>https://github.com/thakyZ/EDQuickLauncher/raw/main/src/EDQuickLauncher/Resources/ed_icon.ico</iconUrl>
     <description>Custom Launcher for Elite Dangerous</description>
+    <copyright>Copyright (c) 2021 Neko Boi Nick</copyright>
+    <readme>README.md</readme>
+    <releaseNotes>EDQuickLauncher/Resources/CHANGELOG.txt</releaseNotes>
     <dependencies>
       <group targetFramework="net6.0-windows7.0" />
     </dependencies>
   </metadata>
   <files>
     <file src="bin\**" target="lib\net6.0-windows7.0" />
-    <file src="EDQuickLauncher\Resources\logo.png" target="EDQuickLauncher\Resources\" />
+    <file src="EDQuickLauncher\Resources\logo.png" target="" />
+    <file src="..\README.md" target="" />
+    <file src="EDQuickLauncher\Resources\LICENSE.txt" target="" />
   </files>
 </package>

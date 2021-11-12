@@ -20,7 +20,7 @@
       <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
+      <Lcid>1</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -32,9 +32,6 @@
     <EmbeddedResource Include="Resources\Loc\ed\*.json" />
     <EmbeddedResource Include="Resources\Loc\*.json" />
   </ItemGroup>
-  <PropertyGroup>
-    <ApplicationIcon>Resources\ed_icon.ico</ApplicationIcon>
-  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DefineConstants>TRACE;DEBUG;XL_NOAUTOUPDATE</DefineConstants>
   </PropertyGroup>

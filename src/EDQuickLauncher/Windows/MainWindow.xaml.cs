@@ -1,6 +1,7 @@
 /* XIVQuickLauncher - Modified Code
  * Copyright (C) 2021  goatcorp
  */
+
 using CheapLoc;
 using EDQuickLauncher.Addon;
 using EDQuickLauncher.Game;
@@ -16,6 +17,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace EDQuickLauncher.Windows {
+
   /// <summary>
   /// Interaction logic for MainWindow.xaml
   /// </summary>
@@ -148,7 +150,7 @@ namespace EDQuickLauncher.Windows {
     private async Task StartGameAndAddon() {
       // We won't do any sanity checks here anymore, since that should be handled in StartLogin
 
-      System.Diagnostics.Process gameProcess = Launcher.LaunchGame(1, App.Settings.AdditionalLaunchArgs, App.Settings.GamePath);
+      System.Diagnostics.Process gameProcess = Launcher.LaunchGame(App.Settings.ExpansionVersion, App.Settings.AdditionalLaunchArgs, App.Settings.GamePath);
 
       if (gameProcess == null) {
         Log.Information("GameProcess was null...");

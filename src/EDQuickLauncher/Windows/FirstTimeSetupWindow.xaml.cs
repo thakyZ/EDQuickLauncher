@@ -1,6 +1,7 @@
 ﻿/* XIVQuickLauncher - Modified Code
  * Copyright (C) 2021  goatcorp
  */
+
 using CheapLoc;
 using EDQuickLauncher.Windows.ViewModel;
 using IWshRuntimeLibrary;
@@ -9,6 +10,7 @@ using System.IO;
 using System.Windows;
 
 namespace EDQuickLauncher.Windows {
+
   /// <summary>
   /// Interaction logic for FirstTimeSetup.xaml
   /// </summary>
