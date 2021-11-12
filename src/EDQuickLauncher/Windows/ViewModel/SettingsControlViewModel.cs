@@ -85,7 +85,7 @@ namespace EDQuickLauncher.Windows.ViewModel {
       OpenFaqLoc = Loc.Localize("OpenFaq", "Open FAQ");
       var items = new List<ComboBoxItem>();
       foreach (LauncherLanguage language in (LauncherLanguage[])Enum.GetValues(typeof(LauncherLanguage))) {
-        items.Add(new ComboBoxItem { Content = LauncherLanguageExtensions.ToFriendlyString(language) });
+        items.Add(new ComboBoxItem { Content = LauncherLanguageExtensions.ToFriendlyString(language), VerticalContentAlignment = System.Windows.VerticalAlignment.Center, HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left });
       }
       LauncherLanguageItems = items;
     }

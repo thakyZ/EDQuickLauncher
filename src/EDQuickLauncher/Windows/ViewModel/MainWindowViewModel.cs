@@ -4,10 +4,7 @@
 
 using CheapLoc;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using Binding = System.Windows.Data.Binding;
 
 namespace EDQuickLauncher.Windows.ViewModel {
 
@@ -28,11 +25,11 @@ namespace EDQuickLauncher.Windows.ViewModel {
       EliteDangerousExpansionLoc = Loc.Localize("EliteDangerousExpansion", "Elite: Dangerous Expansion");
       var items = new List<ComboBoxItem>();
       if (EnvironmentSettings.NoDirectLaunch) {
-        items.Add(new ComboBoxItem { Content = EliteDangerousLauncherLoc });
+        items.Add(new ComboBoxItem { Content = EliteDangerousLauncherLoc, VerticalContentAlignment = System.Windows.VerticalAlignment.Center, HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left });
       } else {
-        items.Add(new ComboBoxItem { Content = EliteDangerousLoc });
+        items.Add(new ComboBoxItem { Content = EliteDangerousLoc, VerticalContentAlignment = System.Windows.VerticalAlignment.Center, HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left });
         if (Util.HasExpansion) {
-          items.Add(new ComboBoxItem { Content = EliteDangerousExpansionLoc });
+          items.Add(new ComboBoxItem { Content = EliteDangerousExpansionLoc, VerticalContentAlignment = System.Windows.VerticalAlignment.Center, HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left });
         }
       }
       ExpansionSwitcherItems = items;
