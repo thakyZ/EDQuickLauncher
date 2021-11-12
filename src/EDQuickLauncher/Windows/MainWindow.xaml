@@ -49,170 +49,113 @@
             Margin="10">
             <Grid
               HorizontalAlignment="Stretch">
-              <Grid.RowDefinitions>
-                <RowDefinition
-                  Height="Auto" />
-                <RowDefinition />
-              </Grid.RowDefinitions>
-
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition
-                  Width="Auto" />
-                <ColumnDefinition />
-              </Grid.ColumnDefinitions>
-              <materialDesign:Card
-                Grid.Row="0"
-                Grid.Column="0"
-                Width="{DynamicResource BannerCardWidth}"
-                Height="{DynamicResource BannerCardHeight}"
-                Margin="0"
-                HorizontalAlignment="Left"
-                Cursor="Hand">
-                <Viewbox>
-                  <Image
-                    x:Name="BannerImage"
-                    Source="pack://application:,,,/Resources/placeholder-news.png" />
-                </Viewbox>
-              </materialDesign:Card>
-              <materialDesign:Card
-                Grid.Row="1"
-                Grid.Column="0"
-                Width="{DynamicResource BannerCardWidth}"
-                Height="94"
-                Margin="0,10,0,0"
-                HorizontalAlignment="Left">
-                <ListView
-                  x:Name="NewsListView">
-                  <ListView.ItemTemplate>
-                    <DataTemplate
-                      x:Name="SingleLineDataTemplate"
-                      DataType="game:News">
-                      <StackPanel
-                        Height="15"
-                        Orientation="Horizontal">
-                        <materialDesign:PackIcon
-                          Width="Auto"
-                          Height="Auto">
-                          <materialDesign:PackIcon.Style>
-                            <Style
-                              TargetType="materialDesign:PackIcon">
-                              <Setter
-                                Property="Kind"
-                                Value="Newspaper" />
-                              <Style.Triggers>
-                                <DataTrigger
-                                  Binding="{Binding Tag}"
-                                  Value="Important">
-                                  <Setter
-                                    Property="Kind"
-                                    Value="AlertCircle" />
-                                  <Setter
-                                    Property="Foreground"
-                                    Value="Red" />
-                                </DataTrigger>
-                                <DataTrigger
-                                  Binding="{Binding Tag}"
-                                  Value="Follow-up">
-                                  <Setter
-                                    Property="Kind"
-                                    Value="InformationOutline" />
-                                  <Setter
-                                    Property="Foreground"
-                                    Value="#FFFFB900" />
-                                </DataTrigger>
-                                <DataTrigger
-                                  Binding="{Binding Tag}"
-                                  Value="DlError">
-                                  <Setter
-                                    Property="Kind"
-                                    Value="LanDisconnect" />
-                                </DataTrigger>
-                              </Style.Triggers>
-                            </Style>
-                          </materialDesign:PackIcon.Style>
-                        </materialDesign:PackIcon>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition
+                    Width="Auto" />
+                  <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <materialDesign:Card
+                  Grid.Row="0"
+                  Grid.Column="0"
+                  Width="{DynamicResource BannerCardWidth}"
+                  Margin="0,10,0,0"
+                  HorizontalAlignment="Stretch"
+                  Height="300"
+                  VerticalAlignment="Top">
+                  <ListView
+                    x:Name="NewsListView"
+                    MouseUp="NewsListView_OnMouseUp">
+                    <ListView.ItemTemplate>
+                      <DataTemplate>
                         <TextBlock
                           Margin="12,0,0,0"
                           VerticalAlignment="Center"
                           Text="{Binding Title}" />
-                      </StackPanel>
-                    </DataTemplate>
-                  </ListView.ItemTemplate>
-                </ListView>
-              </materialDesign:Card>
-              <StackPanel
-                Grid.Row="1"
-                Grid.Column="1"
-                Margin="20,0,20,0"
-                VerticalAlignment="Center"
-                Orientation="Horizontal"
-                HorizontalAlignment="Right">
-                <Button
-                  x:Name="SettingsButton"
-                  Width="77"
-                  Height="77"
-                  Margin="0"
-                  HorizontalAlignment="Right"
-                  Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}"
-                  Focusable="False"
-                  Style="{DynamicResource MaterialDesignFlatButton}"
-                  ToolTip="{Binding SettingsLoc}">
+                      </DataTemplate>
+                    </ListView.ItemTemplate>
+                  </ListView>
+                </materialDesign:Card>
+                <Grid
+                  Grid.Column="1"
+                  Margin="0,10,0,0">
+                  <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition
+                      Height="Auto" />
+                  </Grid.RowDefinitions>
                   <StackPanel
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Orientation="Vertical">
-                    <materialDesign:PackIcon
-                      Width="Auto"
-                      Height="Auto"
-                      Kind="Gear" />
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="20,0,20,0"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+                    <Button
+                      x:Name="SettingsButton"
+                      Width="77"
+                      Height="77"
+                      Margin="0,20,0,0"
+                      HorizontalAlignment="Right"
+                      Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}"
+                      Focusable="False"
+                      Style="{DynamicResource MaterialDesignFlatButton}"
+                      ToolTip="{Binding SettingsLoc}">
+                      <StackPanel
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Orientation="Vertical">
+                        <materialDesign:PackIcon
+                          Width="Auto"
+                          Height="Auto"
+                          Kind="Gear" />
+                      </StackPanel>
+                    </Button>
                   </StackPanel>
-                </Button>
-              </StackPanel>
-              <materialDesign:Card
-                Grid.Row="0"
-                Grid.Column="1"
-                Width="255"
-                Margin="0"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Stretch"
-                KeyDown="Card_KeyDown">
-                <DockPanel
-                  Margin="30,18,30,18">
-                  <ComboBox
-                    x:Name="ExpansionSwitcher"
-                    Height="24"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Top"
-                    materialDesign:HintAssist.Hint="{Binding ExpansionSwitcherLoc}"
-                    DockPanel.Dock="Top"
-                    SelectionChanged="ExpansionSwitcher_SelectionChanged">
-                  </ComboBox>
-                  <CheckBox
-                    x:Name="AutoLaunchCheckBox"
-                    Margin="0,14,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="{Binding AutoLaunchLoc}"
-                    DockPanel.Dock="Top"
-                    Unchecked="AutoLaunchCheckBox_CheckedChanged"
-                    Checked="AutoLaunchCheckBox_CheckedChanged" />
-                  <CheckBox
-                    x:Name="EnableVrCheckBox"
-                    Margin="0,4,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="{Binding EnableVrLoc}"
-                    DockPanel.Dock="Top"
-                    Unchecked="EnableVrCheckBox_CheckedChanged"
-                    Checked="EnableVrCheckBox_CheckedChanged" />
-                  <Button
-                    Width="84"
-                    Margin="0,0,7,0"
-                    Click="LaunchButton_Click"
-                    Content="{Binding LaunchLoc}"
-                    ToolTip="{Binding LaunchTooltipLoc}" />
-                </DockPanel>
-              </materialDesign:Card>
+                  <materialDesign:Card
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Width="255"
+                    Margin="0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Stretch"
+                    KeyDown="Card_KeyDown">
+                    <DockPanel
+                      Margin="30,18,30,18">
+                      <ComboBox
+                        x:Name="ExpansionSwitcher"
+                        Height="24"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top"
+                        DockPanel.Dock="Top"
+                        SelectionChanged="ExpansionSwitcher_SelectionChanged">
+                      </ComboBox>
+                      <CheckBox
+                        x:Name="AutoLaunchCheckBox"
+                        Margin="0,14,0,0"
+                        Content="{Binding AutoLaunchLoc}"
+                        DockPanel.Dock="Top"
+                        Unchecked="AutoLaunchCheckBox_CheckedChanged"
+                        Checked="AutoLaunchCheckBox_CheckedChanged" />
+                      <CheckBox
+                        x:Name="EnableVrCheckBox"
+                        Margin="0,4,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="{Binding EnableVrLoc}"
+                        DockPanel.Dock="Top"
+                        Unchecked="EnableVrCheckBox_CheckedChanged"
+                        Checked="EnableVrCheckBox_CheckedChanged" />
+                      <Button
+                        Width="84"
+                        Margin="0,0,7,0"
+                        Click="LaunchButton_Click"
+                        Content="{Binding LaunchLoc}"
+                        ToolTip="{Binding LaunchTooltipLoc}" />
+                    </DockPanel>
+                  </materialDesign:Card>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>

@@ -9,12 +9,17 @@ using EDQuickLauncher.Windows.ViewModel;
 using Serilog;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading;
+using System.Windows.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace EDQuickLauncher.Windows {
 
@@ -23,11 +28,16 @@ namespace EDQuickLauncher.Windows {
   /// </summary>
   public partial class MainWindow : Window {
     private bool _isLaunching;
+    private Headlines _headlines = new Headlines();
+    public Action ReloadHeadlines;
 
     public MainWindow() {
       InitializeComponent();
 
       DataContext = new MainWindowViewModel();
+      Closing += MainWindow_OnWindowClosing;
+
+      ReloadHeadlines += () => Task.Run(SetupHeadlines);
 
 #if !XL_NOAUTOUPDATE
       Title += " v" + Util.GetAssemblyVersion();
@@ -108,6 +118,8 @@ namespace EDQuickLauncher.Windows {
         SettingsControl.ReloadSettings();
       }
 
+      ReloadHeadlines();
+
       Log.Information("MainWindow initialized.");
 
       Show();
@@ -154,11 +166,9 @@ namespace EDQuickLauncher.Windows {
 
       if (gameProcess == null) {
         Log.Information("GameProcess was null...");
-        _isLaunching = false;
+        Reactivate();
         return;
       }
-
-      CleanUp();
 
       Hide();
 
@@ -173,9 +183,9 @@ namespace EDQuickLauncher.Windows {
         await Task.Run(() => addonMgr.RunAddons(gameProcess, App.Settings, addons));
       } catch (Exception ex) {
         new ErrorWindow(ex,
-          "This could be caused by your antivirus, please check its logs and add any needed exclusions.",
-          "Addons").ShowDialog();
-        _isLaunching = false;
+          "This could be caused by your anti-virus, please check its logs and add any needed exclusions.",
+          "Add-ons").ShowDialog();
+        Reactivate();
 
         addonMgr.StopAddons();
       }
@@ -189,7 +199,7 @@ namespace EDQuickLauncher.Windows {
         Log.Information("Game has exited.");
         addonMgr.StopAddons();
 
-        CleanUp();
+        CleanUp(gameProcess);
 
         Environment.Exit(0);
       });
@@ -198,7 +208,8 @@ namespace EDQuickLauncher.Windows {
       Log.Debug("Started WatchThread");
     }
 
-    private void CleanUp() {
+    private void CleanUp(Process process) {
+      process.Dispose();
     }
 
     private void Card_KeyDown(object sender, KeyEventArgs e) {
@@ -209,9 +220,19 @@ namespace EDQuickLauncher.Windows {
       _isLaunching = true;
     }
 
+    private void Reactivate() {
+      _isLaunching = false;
+      ReloadHeadlines();
+      Activate();
+    }
+
     private void MainWindow_OnClosed(object sender, EventArgs e) {
-      CleanUp();
       Application.Current.Shutdown();
+    }
+
+    public void MainWindow_OnWindowClosing(object sender, CancelEventArgs args) {
+      if (_isLaunching)
+        args.Cancel = true;
     }
 
     private void SettingsControl_OnSettingsDismissed(object sender, EventArgs e) {
@@ -253,6 +274,31 @@ namespace EDQuickLauncher.Windows {
         default:
           ExpansionSwitcher.SelectedIndex = 0;
           break;
+      }
+    }
+
+    private async Task SetupHeadlines() {
+      try {
+        _headlines = await Headlines.Get();
+
+        Dispatcher.BeginInvoke(new Action(() => NewsListView.ItemsSource = _headlines.News));
+      } catch (Exception) {
+        Dispatcher.BeginInvoke(new Action(() => NewsListView.ItemsSource = new List<News> { new News { Title = Loc.Localize("NewsDlFailed", "Could not download news data.") } }));
+      }
+    }
+
+    private void NewsListView_OnMouseUp(object sender, MouseButtonEventArgs e) {
+      if (e.ChangedButton != MouseButton.Left)
+        return;
+
+      if (_headlines == null)
+        return;
+
+      if (NewsListView.SelectedItem is not News item)
+        return;
+
+      if (!string.IsNullOrEmpty(item.Url)) {
+        Util.OpenBrowser(item.Url);
       }
     }
   }
