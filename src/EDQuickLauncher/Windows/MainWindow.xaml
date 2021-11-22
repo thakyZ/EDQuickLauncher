@@ -2,15 +2,14 @@
 <!--  Copyright (C) 2021  goatcorp  -->
 <Window
   x:Class="EDQuickLauncher.Windows.MainWindow"
-  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-  xmlns:game="clr-namespace:EDQuickLauncher.Game"
-  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  xmlns:system="clr-namespace:System;assembly=mscorlib"
-  xmlns:windows="clr-namespace:EDQuickLauncher.Windows"
-  Title="EDQuickLauncher"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:windows="clr-namespace:EDQuickLauncher.Windows"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    Title="EDQuickLauncher"
   Width="845"
   Height="376"
   Background="{DynamicResource MaterialDesignPaper}"
@@ -23,39 +22,39 @@
   WindowStartupLocation="CenterScreen"
   mc:Ignorable="d"
   Loaded="Window_Loaded">
-  <Window.Resources>
-    <system:Double
+    <Window.Resources>
+        <system:Double
       x:Key="BannerCardWidth">544</system:Double>
-    <system:Double
+        <system:Double
       x:Key="BannerCardHeight">213</system:Double>
-  </Window.Resources>
-  <Grid>
-    <materialDesign:Transitioner
+    </Window.Resources>
+    <Grid>
+        <materialDesign:Transitioner
       SelectedIndex="1">
-      <materialDesign:TransitionerSlide>
-        <materialDesign:TransitionerSlide.ForwardWipe>
-          <materialDesign:FadeWipe />
-        </materialDesign:TransitionerSlide.ForwardWipe>
-        <windows:SettingsControl
+            <materialDesign:TransitionerSlide>
+                <materialDesign:TransitionerSlide.ForwardWipe>
+                    <materialDesign:FadeWipe />
+                </materialDesign:TransitionerSlide.ForwardWipe>
+                <windows:SettingsControl
           x:Name="SettingsControl"
           SettingsDismissed="SettingsControl_OnSettingsDismissed" />
-      </materialDesign:TransitionerSlide>
-      <materialDesign:TransitionerSlide>
-        <materialDesign:TransitionerSlide.BackwardWipe>
-          <materialDesign:FadeWipe />
-        </materialDesign:TransitionerSlide.BackwardWipe>
-        <Grid>
-          <Grid
+            </materialDesign:TransitionerSlide>
+            <materialDesign:TransitionerSlide>
+                <materialDesign:TransitionerSlide.BackwardWipe>
+                    <materialDesign:FadeWipe />
+                </materialDesign:TransitionerSlide.BackwardWipe>
+                <Grid>
+                    <Grid
             Margin="10">
-            <Grid
+                        <Grid
               HorizontalAlignment="Stretch">
-              <Grid>
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition
                     Width="Auto" />
-                  <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <materialDesign:Card
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:Card
                   Grid.Row="0"
                   Grid.Column="0"
                   Width="{DynamicResource BannerCardWidth}"
@@ -63,35 +62,35 @@
                   HorizontalAlignment="Stretch"
                   Height="300"
                   VerticalAlignment="Top">
-                  <ListView
+                                    <ListView
                     x:Name="NewsListView"
                     MouseUp="NewsListView_OnMouseUp">
-                    <ListView.ItemTemplate>
-                      <DataTemplate>
-                        <TextBlock
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock
                           Margin="12,0,0,0"
                           VerticalAlignment="Center"
                           Text="{Binding Title}" />
-                      </DataTemplate>
-                    </ListView.ItemTemplate>
-                  </ListView>
-                </materialDesign:Card>
-                <Grid
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </materialDesign:Card>
+                                <Grid
                   Grid.Column="1"
                   Margin="0,10,0,0">
-                  <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition
                       Height="Auto" />
-                  </Grid.RowDefinitions>
-                  <StackPanel
+                                    </Grid.RowDefinitions>
+                                    <StackPanel
                     Grid.Row="1"
                     Grid.Column="0"
                     Margin="20,0,20,0"
                     VerticalAlignment="Center"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right">
-                    <Button
+                                        <Button
                       x:Name="SettingsButton"
                       Width="77"
                       Height="77"
@@ -101,18 +100,18 @@
                       Focusable="False"
                       Style="{DynamicResource MaterialDesignFlatButton}"
                       ToolTip="{Binding SettingsLoc}">
-                      <StackPanel
+                                            <StackPanel
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         Orientation="Vertical">
-                        <materialDesign:PackIcon
+                                                <materialDesign:PackIcon
                           Width="Auto"
                           Height="Auto"
                           Kind="Gear" />
-                      </StackPanel>
-                    </Button>
-                  </StackPanel>
-                  <materialDesign:Card
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                    <materialDesign:Card
                     Grid.Row="0"
                     Grid.Column="0"
                     Width="255"
@@ -120,24 +119,24 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Stretch"
                     KeyDown="Card_KeyDown">
-                    <DockPanel
+                                        <DockPanel
                       Margin="30,18,30,18">
-                      <ComboBox
+                                            <ComboBox
                         x:Name="ExpansionSwitcher"
                         Height="24"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Top"
                         DockPanel.Dock="Top"
                         SelectionChanged="ExpansionSwitcher_SelectionChanged">
-                      </ComboBox>
-                      <CheckBox
+                                            </ComboBox>
+                                            <CheckBox
                         x:Name="AutoLaunchCheckBox"
                         Margin="0,14,0,0"
                         Content="{Binding AutoLaunchLoc}"
                         DockPanel.Dock="Top"
                         Unchecked="AutoLaunchCheckBox_CheckedChanged"
                         Checked="AutoLaunchCheckBox_CheckedChanged" />
-                      <CheckBox
+                                            <CheckBox
                         x:Name="EnableVrCheckBox"
                         Margin="0,4,0,0"
                         HorizontalAlignment="Left"
@@ -146,20 +145,20 @@
                         DockPanel.Dock="Top"
                         Unchecked="EnableVrCheckBox_CheckedChanged"
                         Checked="EnableVrCheckBox_CheckedChanged" />
-                      <Button
+                                            <Button
                         Width="84"
                         Margin="0,0,7,0"
                         Click="LaunchButton_Click"
                         Content="{Binding LaunchLoc}"
                         ToolTip="{Binding LaunchTooltipLoc}" />
-                    </DockPanel>
-                  </materialDesign:Card>
+                                        </DockPanel>
+                                    </materialDesign:Card>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
                 </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-      </materialDesign:TransitionerSlide>
-    </materialDesign:Transitioner>
-  </Grid>
+            </materialDesign:TransitionerSlide>
+        </materialDesign:Transitioner>
+    </Grid>
 </Window>

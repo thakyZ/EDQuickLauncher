@@ -281,9 +281,9 @@ namespace EDQuickLauncher.Windows {
       try {
         _headlines = await Headlines.Get();
 
-        Dispatcher.BeginInvoke(new Action(() => NewsListView.ItemsSource = _headlines.News));
+        _ = Dispatcher.BeginInvoke(() => NewsListView.ItemsSource = _headlines.News);
       } catch (Exception) {
-        Dispatcher.BeginInvoke(new Action(() => NewsListView.ItemsSource = new List<News> { new News { Title = Loc.Localize("NewsDlFailed", "Could not download news data.") } }));
+        _ = Dispatcher.BeginInvoke(() => NewsListView.ItemsSource = new List<News> { new News { Title = Loc.Localize("NewsDlFailed", "Could not download news data.") } });
       }
     }
 

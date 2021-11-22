@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using System.Net.Http;
 using HtmlAgilityPack;
 using Castle.DynamicProxy.Generators.Emitters;
 using System.Text.Json.Nodes;
@@ -20,7 +21,7 @@ namespace EDQuickLauncher.Game {
   ///
   /// </summary>
   public partial class Headlines {
-    [JsonProperty("news")] public List<News> News { get; set; }
+    public List<News> News { get; set; }
   }
 
   public class News {
@@ -45,29 +46,31 @@ namespace EDQuickLauncher.Game {
   public partial class Headlines {
 
     public static async Task<Headlines> Get() {
-      var tcs = new TaskCompletionSource<Headlines>();
       var html = @"https://community.elitedangerous.com";
       var startDate = DateTime.Today.AddYears(1286);
 
-      var web = new HtmlWeb().Load(html);
+      var client = new HttpClient();
       var headlines = new Headlines {
         News = new List<News>()
       };
-      var nodes = web.DocumentNode.SelectNodes("//div[@class=\"article\"]");
-      var TempNews = new List<News>();
-      List<HtmlNode> nodeList = nodes.ToList(0, 9);
-      nodeList.ForEach(delegate (HtmlNode node) {
-        TempNews.AddIfNotContains(new News {
-          Title = node.ChildNodes[1].ChildNodes[0].InnerText.TrimStart(),
-          Date = DateTime.Parse(Converter.FirstCharToUpper(node.ChildNodes[3].ChildNodes[0].InnerText)),
-          Url = $"{html}{node.ChildNodes[1].ChildNodes[0].GetAttributeValue("href", "")}",
-          Id = node.ChildNodes[1].ChildNodes[0].GetAttributeValue("href", "").Substring(12)
+      using (var response = await client.GetAsync(html)) {
+        var document = new HtmlDocument();
+        document.Load(await response.Content.ReadAsStreamAsync());
+        var nodes = document.DocumentNode.SelectNodes("//div[@class=\"article\"]");
+        var TempNews = new List<News>();
+        List<HtmlNode> nodeList = nodes.ToList(0, 9);
+        nodeList.ForEach(delegate (HtmlNode node) {
+          TempNews.AddIfNotContains(new News {
+            Title = node.ChildNodes[1].ChildNodes[0].InnerText.TrimStart(),
+            Date = DateTime.Parse(Converter.FirstCharToUpper(node.ChildNodes[3].ChildNodes[0].InnerText)),
+            Url = $"{html}{node.ChildNodes[1].ChildNodes[0].GetAttributeValue("href", "")}",
+            Id = node.ChildNodes[1].ChildNodes[0].GetAttributeValue("href", "").Substring(12)
+          });
         });
-      });
-      headlines.News = TempNews;
-      var test = headlines;
+        headlines.News = TempNews;
+      }
 
-      return test;
+      return headlines;
     }
   }
 

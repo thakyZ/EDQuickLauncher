@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows;
 
 namespace EDQuickLauncher {
+
   internal class Updates {
 #if !XL_NOAUTOUPDATE
     public EventHandler OnUpdateCheckFinished;
