@@ -1,11 +1,16 @@
 name: Build EDQuickLauncher
 
 on:
+  push:
+    branches:
+    - main
   release:
-    branches: [ main ]
+    types:
+    - created
   pull_request:
-    branches: [ main ]
-    
+    branches:
+    - main
+
 concurrency: build_ed
 
 jobs:
@@ -80,7 +85,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Initialize Submodules
         run: git submodule update --init --recursive
-          
+
       - name: Setup Nuget
         uses: nuget/setup-nuget@v1
         with:
