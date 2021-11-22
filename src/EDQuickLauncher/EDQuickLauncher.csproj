@@ -41,17 +41,17 @@
 		<EmbeddedResource Include="Resources\Loc\ed\*.json" />
 		<EmbeddedResource Include="Resources\Loc\*.json" />
 	</ItemGroup>
-	<PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+	<PropertyGroup Condition=" '$(Configuration)' == 'Debug|AnyCPU' ">
+	  <NoWarn>1701;1702;8002</NoWarn>
 		<DefineConstants>TRACE;DEBUG;XL_NOAUTOUPDATE</DefineConstants>
 	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)' == 'ReleaseNoUpdate' ">
-		<DefineConstants>TRACE;XL_NOAUTOUPDATE</DefineConstants>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	<PropertyGroup Condition=" '$(Configuration)' == 'ReleaseNoUpdate|AnyCPU' ">
 	  <NoWarn>1701;1702;8002</NoWarn>
+		<DefineConstants>TRACE;XL_NOAUTOUPDATE</DefineConstants>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 	  <NoWarn>1701;1702;8002</NoWarn>
+		<DefineConstants>TRACE;XL_NOAUTOUPDATE</DefineConstants>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="SteamWorksSharp\Native\Windows_x64\steam_api64.dll" />
