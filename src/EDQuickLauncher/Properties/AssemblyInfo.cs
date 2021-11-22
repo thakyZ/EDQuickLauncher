@@ -26,7 +26,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("EDQuickLauncher")]
 [assembly: AssemblyVersion("1.0.4")]
 [assembly: AssemblyDelaySign(false)]
-[assembly: AssemblyKeyFile("keypair.snk")]
+// We do not need this to be signed right now.
+//[assembly: AssemblyKeyFile("keypair.snk")]
 [assembly: AssemblyMetadata("RepositoryUrl", "https://github.com/thakyZ/EDQuickLauncher")]
 [assembly: NeutralResourcesLanguage("en-US")]
 
