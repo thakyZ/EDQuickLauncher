@@ -1,130 +1,135 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <Product>EDQuickLauncher</Product>
-    <AssemblyTitle>EDQuickLauncher</AssemblyTitle>
-    <Description>Custom launcher for Elite: Dangerous.</Description>
-    <VersionPrefix>1.0.0</VersionPrefix>
-  </PropertyGroup>
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <UseWPF>true</UseWPF>
-    <LangVersion>latest</LangVersion>
-    <Deterministic>true</Deterministic>
-    <OutputPath>..\bin\</OutputPath>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-  </PropertyGroup>
-  <!-- To create a desktop shortcut -->
-  <ItemGroup>
-    <COMReference Include="IWshRuntimeLibrary">
-      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>3</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>
-  <!-- Assets -->
-  <PropertyGroup>
-    <ApplicationIcon>Resources\ed_icon.ico</ApplicationIcon>
-    <Win32Icon>Resources\ed_icon.ico</Win32Icon>
-  </PropertyGroup>
-  <ItemGroup>
-    <Resource Include="Resources\*.*" />
-    <EmbeddedResource Include="Resources\Loc\ed\*.json" />
-    <EmbeddedResource Include="Resources\Loc\*.json" />
-  </ItemGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DefineConstants>TRACE;DEBUG;XL_NOAUTOUPDATE</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'ReleaseNoUpdate' ">
-    <DefineConstants>TRACE;XL_NOAUTOUPDATE</DefineConstants>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Remove="SteamWorksSharp\Native\Windows_x64\steam_api64.dll" />
-    <None Remove="SteamWorksSharp\Native\Windows_x86\steam_api.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Remove="Resources\CHANGELOG.txt" />
-    <Resource Remove="Resources\LICENSE.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\CHANGELOG.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\LICENSE.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <!-- SteamWorksSharp natives -->
-  <ItemGroup>
-    <EmbeddedResource Include="SteamWorksSharp\Native\Windows_x86\steam_api.dll" />
-    <EmbeddedResource Include="SteamWorksSharp\Native\Windows_x64\steam_api64.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="CheapLoc" Version="1.1.7" />
-    <PackageReference Include="Config.Net.Json" Version="4.14.23" />
-    <PackageReference Include="Downloader" Version="2.2.9" />
-    <PackageReference Include="Dragablz" Version="0.0.3.223" />
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.38" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="MonoTorrent" Version="2.0.1" />
-    <PackageReference Include="squirrel.windows" Version="2.0.1" />
-    <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
-    <PackageReference Include="Serilog.Sinks.Debug" Version="2.0.0" />
-    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
-    <PackageReference Include="SharedMemory" Version="2.2.3" />
-    <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
-    <PackageReference Include="System.Text.Encodings.Web" Version="6.0.0" />
-    <PackageReference Include="MaterialDesignThemes" Version="4.2.1" />
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
-    <PackageReference Include="WinCopies.WindowsAPICodePack.Shell" Version="2.10.2" />
-  </ItemGroup>
-  <PropertyGroup>
-    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
-    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
-    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
-  </PropertyGroup>
-  <ItemGroup>
-    <!-- workaround for https://github.com/Squirrel/Squirrel.Windows/issues/1649 -->
-    <Reference Include="$(PkgSquirrel_Windows)\lib\Net45\*.dll" />
-  </ItemGroup>
-  <!-- Git -->
-  <Target Name="GetGitHash" BeforeTargets="WriteGitHash" Condition="'$(BuildHash)' == ''">
-    <PropertyGroup>
-      <!-- temp file for the git version (lives in "obj" folder)-->
-      <VerFile>$(IntermediateOutputPath)gitver</VerFile>
-    </PropertyGroup>
-    <!-- write the hash to the temp file.-->
-    <Exec Command="git -C &quot;$(ProjectDir.Replace('\','\\'))&quot; describe --long --always --dirty &gt; $(VerFile)" />
-    <!-- read the version into the GitVersion itemGroup-->
-    <ReadLinesFromFile File="$(VerFile)">
-      <Output TaskParameter="Lines" ItemName="GitVersion" />
-    </ReadLinesFromFile>
-    <!-- Set the BuildHash property to contain the GitVersion, if it wasn't already set.-->
-    <PropertyGroup>
-      <BuildHash>@(GitVersion)</BuildHash>
-    </PropertyGroup>
-  </Target>
-  <Target Name="WriteGitHash" BeforeTargets="CoreCompile">
-    <!-- names the obj/.../CustomAssemblyInfo.cs file -->
-    <PropertyGroup>
-      <CustomAssemblyInfoFile>$(IntermediateOutputPath)CustomAssemblyInfo.cs</CustomAssemblyInfoFile>
-    </PropertyGroup>
-    <!-- includes the CustomAssemblyInfo for compilation into your project -->
-    <ItemGroup>
-      <Compile Include="$(CustomAssemblyInfoFile)" />
-    </ItemGroup>
-    <!-- defines the AssemblyMetadata attribute that will be written -->
-    <ItemGroup>
-      <AssemblyAttributes Include="AssemblyMetadata">
-        <_Parameter1>GitHash</_Parameter1>
-        <_Parameter2>$(BuildHash)</_Parameter2>
-      </AssemblyAttributes>
-    </ItemGroup>
-    <!-- writes the attribute to the customAssemblyInfo file -->
-    <WriteCodeFragment Language="C#" OutputFile="$(CustomAssemblyInfoFile)" AssemblyAttributes="@(AssemblyAttributes)" />
-  </Target>
+	<PropertyGroup>
+		<Product>EDQuickLauncher</Product>
+		<AssemblyTitle>EDQuickLauncher</AssemblyTitle>
+		<Description>Custom launcher for Elite: Dangerous.</Description>
+		<VersionPrefix>1.0.0</VersionPrefix>
+		<Configurations>Debug;Release;ReleaseNoUpdate</Configurations>
+	</PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<LangVersion>latest</LangVersion>
+		<Deterministic>true</Deterministic>
+		<OutputPath>..\bin\</OutputPath>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	</PropertyGroup>
+	<!-- To create a desktop shortcut -->
+	<ItemGroup>
+		<COMReference Include="IWshRuntimeLibrary">
+			<Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+			<VersionMajor>1</VersionMajor>
+			<VersionMinor>0</VersionMinor>
+			<Lcid>3</Lcid>
+			<WrapperTool>tlbimp</WrapperTool>
+			<Isolated>False</Isolated>
+			<EmbedInteropTypes>True</EmbedInteropTypes>
+		</COMReference>
+	</ItemGroup>
+	<!-- Assets -->
+	<PropertyGroup>
+		<ApplicationIcon>Resources\ed_icon.ico</ApplicationIcon>
+		<Win32Icon>Resources\ed_icon.ico</Win32Icon>
+		<IsPublishable>True</IsPublishable>
+		<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+		<UseWindowsForms>False</UseWindowsForms>
+		<StartupObject>EDQuickLauncher.App</StartupObject>
+	</PropertyGroup>
+	<ItemGroup>
+		<Resource Include="Resources\*.*" />
+		<EmbeddedResource Include="Resources\Loc\ed\*.json" />
+		<EmbeddedResource Include="Resources\Loc\*.json" />
+	</ItemGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Any CPU' ">
+	  <NoWarn>1701;1702;8002</NoWarn>
+		<DefineConstants>TRACE;DEBUG;XL_NOAUTOUPDATE</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Any CPU'">
+	  <NoWarn>1701;1702;8002</NoWarn>
+		<DefineConstants>TRACE;XL_NOAUTOUPDATE</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseNoUpdate|Any CPU'">
+	  <NoWarn>1701;1702;8002</NoWarn>
+	  <DefineConstants>TRACE;XL_NOAUTOUPDATE</DefineConstants>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="SteamWorksSharp\Native\Windows_x64\steam_api64.dll" />
+		<None Remove="SteamWorksSharp\Native\Windows_x86\steam_api.dll" />
+	</ItemGroup>
+	<ItemGroup>
+		<Resource Remove="Resources\CHANGELOG.txt" />
+		<Resource Remove="Resources\LICENSE.txt" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="Resources\CHANGELOG.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\LICENSE.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	<!-- SteamWorksSharp natives -->
+	<ItemGroup>
+		<EmbeddedResource Include="SteamWorksSharp\Native\Windows_x86\steam_api.dll" />
+		<EmbeddedResource Include="SteamWorksSharp\Native\Windows_x64\steam_api64.dll" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CheapLoc" Version="1.1.6" />
+		<PackageReference Include="Config.Net.Json" Version="4.14.23" />
+		<PackageReference Include="DeltaCompressionDotNet" Version="2.0.1" />
+		<PackageReference Include="Downloader" Version="2.2.9" />
+		<PackageReference Include="Dragablz" Version="0.0.3.223" />
+		<PackageReference Include="HtmlAgilityPack" Version="1.11.38" />
+		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+		<PackageReference Include="MonoTorrent" Version="2.0.1" />
+		<PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+		<PackageReference Include="Serilog.Sinks.Debug" Version="2.0.0" />
+		<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+		<PackageReference Include="SharedMemory" Version="2.2.3" />
+		<PackageReference Include="squirrel.windows" Version="2.0.2-netcore.3" />
+		<PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
+		<PackageReference Include="System.Net.Http" Version="4.3.4" />
+		<PackageReference Include="System.Text.Encodings.Web" Version="6.0.0" />
+		<PackageReference Include="MaterialDesignThemes" Version="4.2.1" />
+		<PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
+		<PackageReference Include="WinCopies.WindowsAPICodePack.Shell" Version="2.10.2" />
+	</ItemGroup>
+	<!-- Git -->
+	<Target Name="GetGitHash" BeforeTargets="WriteGitHash" Condition="'$(BuildHash)' == ''">
+		<PropertyGroup>
+			<!-- temp file for the git version (lives in "obj" folder)-->
+			<VerFile>$(IntermediateOutputPath)gitver</VerFile>
+		</PropertyGroup>
+		<!-- write the hash to the temp file.-->
+		<Exec Command="git -C &quot;$(ProjectDir.Replace('\','\\'))&quot; describe --long --always --dirty &gt; $(VerFile)" />
+		<!-- read the version into the GitVersion itemGroup-->
+		<ReadLinesFromFile File="$(VerFile)">
+			<Output TaskParameter="Lines" ItemName="GitVersion" />
+		</ReadLinesFromFile>
+		<!-- Set the BuildHash property to contain the GitVersion, if it wasn't already set.-->
+		<PropertyGroup>
+			<BuildHash>@(GitVersion)</BuildHash>
+		</PropertyGroup>
+	</Target>
+	<Target Name="WriteGitHash" BeforeTargets="CoreCompile">
+		<!-- names the obj/.../CustomAssemblyInfo.cs file -->
+		<PropertyGroup>
+			<CustomAssemblyInfoFile>$(IntermediateOutputPath)CustomAssemblyInfo.cs</CustomAssemblyInfoFile>
+		</PropertyGroup>
+		<!-- includes the CustomAssemblyInfo for compilation into your project -->
+		<ItemGroup>
+			<Compile Include="$(CustomAssemblyInfoFile)" />
+		</ItemGroup>
+		<!-- defines the AssemblyMetadata attribute that will be written -->
+		<ItemGroup>
+			<AssemblyAttributes Include="AssemblyMetadata">
+				<_Parameter1>GitHash</_Parameter1>
+				<_Parameter2>$(BuildHash)</_Parameter2>
+			</AssemblyAttributes>
+		</ItemGroup>
+		<!-- writes the attribute to the customAssemblyInfo file -->
+		<WriteCodeFragment Language="C#" OutputFile="$(CustomAssemblyInfoFile)" AssemblyAttributes="@(AssemblyAttributes)" />
+	</Target>
 </Project>

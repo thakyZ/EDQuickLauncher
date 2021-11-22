@@ -79,7 +79,9 @@ dotnet_diagnostic.CA2211.severity = none
 dotnet_diagnostic.CA1401.severity = none
 dotnet_diagnostic.UA0001.severity = none
 # This should probably be checked from time to time to see if the packages are actually supported.
-dotnet_diagnostic.NU1701.severity = none
+NU1701.severity = none
+dotnet_diagnostic.CA1416.severity = none
+dotnet_diagnostic.CS8002.severity = none
 
 #### C# Coding Conventions ####
 
