@@ -13,7 +13,7 @@ namespace EDQuickLauncher.Addon {
   public class GenericAddon : IRunnableAddon, INotifyAddonAfterClose {
     private Process _addonProcess;
 
-    void IAddon.Setup(Process gameProcess, ILauncherSettingsV1 setting) { }
+    void IAddon.Setup(Process gameProcess, LauncherSettingsV2 setting) { }
 
     public void Run() =>
       Run(false);

@@ -12,7 +12,7 @@ namespace EDQuickLauncher.Addon {
   internal class AddonManager {
     private List<Tuple<IAddon, Thread, CancellationTokenSource>> _runningAddons;
 
-    public void RunAddons(Process gameProcess, ILauncherSettingsV1 setting, List<IAddon> addonEntries)
+    public void RunAddons(Process gameProcess, LauncherSettingsV2 setting, List<IAddon> addonEntries)
     {
       if (_runningAddons != null)
         throw new Exception("Addons still running?");

@@ -20,6 +20,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using EDQuickLauncher.Config;
+using EDQuickLauncher.Settings;
 
 namespace EDQuickLauncher.Windows {
 
@@ -231,6 +233,7 @@ namespace EDQuickLauncher.Windows {
     }
 
     public void MainWindow_OnWindowClosing(object sender, CancelEventArgs args) {
+      ConfigTools.Save(App.Settings, typeof(LauncherSettingsV2));
       if (_isLaunching)
         args.Cancel = true;
     }

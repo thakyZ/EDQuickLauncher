@@ -4,10 +4,34 @@
 
 using Config.Net;
 using System;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 
 namespace EDQuickLauncher.Settings.Parsers {
+
+  internal class DirectoryInfoConverter : JsonConverter {
+    public override void WriteJson(JsonWriter writer, object value, JsonSerializer jsonSerializer) {
+      writer.WriteValue(value is DirectoryInfo di ? di.FullName : null);
+    }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0046:Convert to conditional expression", Justification = "<Pending>")]
+    public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer) {
+      if (reader.Value == null) {
+        return null;
+      }
+
+      if (objectType == typeof(DirectoryInfo)) {
+        return new DirectoryInfo((string)reader.Value);
+      }
+
+      return null;
+    }
+
+    public override bool CanConvert(Type objectType) {
+      return objectType == typeof(DirectoryInfo);
+    }
+  }
 
   internal class DirectoryInfoParser : ITypeParser {
     public IEnumerable<Type> SupportedTypes => new[] { typeof(DirectoryInfo) };

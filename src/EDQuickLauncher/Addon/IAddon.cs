@@ -7,6 +7,6 @@ using System.Diagnostics;
 namespace EDQuickLauncher.Addon {
   public interface IAddon {
     string Name { get; }
-    void Setup(Process gameProcess, ILauncherSettingsV1 setting);
+    void Setup(Process gameProcess, LauncherSettingsV2 setting);
   }
 }

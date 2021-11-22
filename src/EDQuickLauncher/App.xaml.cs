@@ -17,6 +17,7 @@ using EDQuickLauncher.Game;
 using EDQuickLauncher.Settings;
 using EDQuickLauncher.Settings.Parsers;
 using EDQuickLauncher.Windows;
+using EDQuickLauncher.Config;
 
 namespace EDQuickLauncher {
 
@@ -26,7 +27,7 @@ namespace EDQuickLauncher {
   public partial class App : Application {
     public const string RepoUrl = "https://github.com/thakyZ/EDQuickLauncher";
 
-    public static ILauncherSettingsV1 Settings;
+    public static LauncherSettingsV2 Settings;
 
 #if !XL_NOAUTOUPDATE
     private UpdateLoadingDialog _updateWindow;
@@ -126,16 +127,7 @@ namespace EDQuickLauncher {
     }
 
     private static void SetupSettings() {
-      Settings = new ConfigurationBuilder<ILauncherSettingsV1>()
-        .UseCommandLineArgs()
-        .UseJsonFile(GetConfigPath("launcher"))
-        .UseTypeParser(new DirectoryInfoParser())
-        .UseTypeParser(new AddonListParser())
-        .Build();
-
-      if (String.IsNullOrEmpty(Settings.AcceptLanguage)) {
-        Settings.AcceptLanguage = Util.GenerateAcceptLanguage();
-      }
+      Settings = ConfigTools.Load();
     }
 
     private void OnUpdateCheckFinished(object sender, EventArgs e) {
@@ -177,7 +169,7 @@ namespace EDQuickLauncher {
       });
     }
 
-    private static string GetConfigPath(string prefix) => Path.Combine(Paths.RoamingPath, $"{prefix}ConfigV1.json");
+    internal static string GetConfigPath(string prefix) => Path.Combine(Paths.RoamingPath, $"{prefix}ConfigV2.json");
 
     private void App_OnStartup(object sender, StartupEventArgs e) {
       var accountName = String.Empty;
