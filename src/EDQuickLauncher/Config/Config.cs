@@ -1,13 +1,11 @@
-﻿using EDQuickLauncher.Settings;
+﻿using Config.Net;
+using EDQuickLauncher.Settings;
+using EDQuickLauncher.Settings.Parsers;
 using Newtonsoft.Json;
+using Serilog;
 using System;
 using System.IO;
 using System.Text;
-using Serilog;
-using Newtonsoft.Json.Linq;
-using Config.Net;
-using EDQuickLauncher.Settings.Parsers;
-using System.Windows.Shell;
 
 namespace EDQuickLauncher.Config {
   public static class ConfigTools {
@@ -57,12 +55,12 @@ namespace EDQuickLauncher.Config {
         return (LauncherSettingsV2)JsonConvert.DeserializeObject(json, typeof(LauncherSettingsV2));
       }
       if (!File.Exists(ConfigPath) && File.Exists($"{ConfigPath.Substring(0, ConfigPath.Length - 6)}1.json")) {
-         var _Settings = new ConfigurationBuilder<ILauncherSettingsV1>()
-        .UseJsonFile($"{ConfigPath.Substring(0, ConfigPath.Length - 6)}1.json")
-        .UseCommandLineArgs()
-        .UseTypeParser(new DirectoryInfoParser())
-        .UseTypeParser(new AddonListParser())
-        .Build();
+        var _Settings = new ConfigurationBuilder<ILauncherSettingsV1>()
+       .UseJsonFile($"{ConfigPath.Substring(0, ConfigPath.Length - 6)}1.json")
+       .UseCommandLineArgs()
+       .UseTypeParser(new DirectoryInfoParser())
+       .UseTypeParser(new AddonListParser())
+       .Build();
 
         if (String.IsNullOrEmpty(_Settings.AcceptLanguage)) {
           _Settings.AcceptLanguage = Util.GenerateAcceptLanguage();

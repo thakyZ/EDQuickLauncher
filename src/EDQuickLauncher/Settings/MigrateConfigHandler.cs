@@ -1,8 +1,8 @@
 ﻿using Config.Net;
+using EDQuickLauncher.Config;
 using EDQuickLauncher.Settings.Parsers;
 using System;
 using System.Collections.Generic;
-using EDQuickLauncher.Config;
 
 namespace EDQuickLauncher.Settings {
   internal static class MigrateConfigHandler {
@@ -44,17 +44,17 @@ namespace EDQuickLauncher.Settings {
     }
 
     public static object CreateDefaultConfig() {
-      switch(CurrentVersion) {
+      switch (CurrentVersion) {
         case 1:
-         var newConfig = new ConfigurationBuilder<ILauncherSettingsV1>()
-            .UseCommandLineArgs()
-            .UseJsonFile(App.GetConfigPath("launcher"))
-            .UseTypeParser(new DirectoryInfoParser())
-            .UseTypeParser(new AddonListParser())
-            .Build();
+          var newConfig = new ConfigurationBuilder<ILauncherSettingsV1>()
+             .UseCommandLineArgs()
+             .UseJsonFile(App.GetConfigPath("launcher"))
+             .UseTypeParser(new DirectoryInfoParser())
+             .UseTypeParser(new AddonListParser())
+             .Build();
 
-            if (String.IsNullOrEmpty(newConfig.AcceptLanguage)) {
-              newConfig.AcceptLanguage = Util.GenerateAcceptLanguage();
+          if (String.IsNullOrEmpty(newConfig.AcceptLanguage)) {
+            newConfig.AcceptLanguage = Util.GenerateAcceptLanguage();
           }
           return newConfig;
         case 2:

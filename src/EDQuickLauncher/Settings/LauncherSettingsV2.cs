@@ -2,10 +2,10 @@
  * Copyright (C) 2021  goatcorp
  */
 using EDQuickLauncher.Addon;
+using EDQuickLauncher.Settings.Parsers;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
-using Newtonsoft.Json;
-using EDQuickLauncher.Settings.Parsers;
 
 namespace EDQuickLauncher.Settings {
   public class LauncherSettingsV2 {

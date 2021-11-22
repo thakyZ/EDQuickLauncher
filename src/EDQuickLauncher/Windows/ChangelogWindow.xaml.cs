@@ -1,15 +1,15 @@
 ﻿/* XIVQuickLauncher - Modified Code
  * Copyright (C) 2021  goatcorp
  */
+using EDQuickLauncher.Settings;
 using EDQuickLauncher.Windows.ViewModel;
+using Microsoft.Win32;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Media;
 using System.Web;
 using System.Windows;
-using Microsoft.Win32;
-using EDQuickLauncher.Settings;
 
 namespace EDQuickLauncher.Windows {
   /// <summary>

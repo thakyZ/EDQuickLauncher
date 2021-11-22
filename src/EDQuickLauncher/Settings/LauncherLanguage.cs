@@ -1,7 +1,6 @@
 ﻿/* XIVQuickLauncher - Modified Code
  * Copyright (C) 2021  goatcorp
  */
-using EDQuickLauncher.Settings;
 using System.Collections.Generic;
 
 namespace EDQuickLauncher.Settings {

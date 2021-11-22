@@ -12,19 +12,16 @@ namespace EDQuickLauncher.Addon {
   internal class AddonManager {
     private List<Tuple<IAddon, Thread, CancellationTokenSource>> _runningAddons;
 
-    public void RunAddons(Process gameProcess, LauncherSettingsV2 setting, List<IAddon> addonEntries)
-    {
+    public void RunAddons(Process gameProcess, LauncherSettingsV2 setting, List<IAddon> addonEntries) {
       if (_runningAddons != null)
         throw new Exception("Addons still running?");
 
       _runningAddons = new List<Tuple<IAddon, Thread, CancellationTokenSource>>();
 
-      foreach (IAddon addonEntry in addonEntries)
-      {
+      foreach (IAddon addonEntry in addonEntries) {
         addonEntry.Setup(gameProcess, setting);
 
-        if (addonEntry is IPersistentAddon persistentAddon)
-        {
+        if (addonEntry is IPersistentAddon persistentAddon) {
           Log.Information("Starting PersistentAddon {0}", persistentAddon.Name);
           var cancellationTokenSource = new CancellationTokenSource();
 
@@ -34,8 +31,7 @@ namespace EDQuickLauncher.Addon {
           _runningAddons.Add(new Tuple<IAddon, Thread, CancellationTokenSource>(persistentAddon, addonThread, cancellationTokenSource));
         }
 
-        if (addonEntry is IRunnableAddon runnableAddon)
-        {
+        if (addonEntry is IRunnableAddon runnableAddon) {
           Log.Information("Starting RunnableAddon {0}", runnableAddon.Name);
           runnableAddon.Run();
         }
@@ -45,14 +41,11 @@ namespace EDQuickLauncher.Addon {
       }
     }
 
-    public void StopAddons()
-    {
+    public void StopAddons() {
       Log.Information("Stopping addons...");
 
-      if (_runningAddons != null)
-      {
-        foreach (Tuple<IAddon, Thread, CancellationTokenSource> addon in _runningAddons)
-        {
+      if (_runningAddons != null) {
+        foreach (Tuple<IAddon, Thread, CancellationTokenSource> addon in _runningAddons) {
           addon.Item3?.Cancel();
           addon.Item2?.Join();
 

@@ -2,6 +2,11 @@
  * Copyright (C) 2021  goatcorp
  */
 
+using CheapLoc;
+using EDQuickLauncher.Config;
+using EDQuickLauncher.Settings;
+using EDQuickLauncher.Windows;
+using Serilog;
 using System;
 using System.Globalization;
 using System.IO;
@@ -9,15 +14,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
-using CheapLoc;
-using Config.Net;
-using Newtonsoft.Json;
-using Serilog;
-using EDQuickLauncher.Game;
-using EDQuickLauncher.Settings;
-using EDQuickLauncher.Settings.Parsers;
-using EDQuickLauncher.Windows;
-using EDQuickLauncher.Config;
 
 namespace EDQuickLauncher {
 

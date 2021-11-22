@@ -1,19 +1,9 @@
-﻿using System;
-using System.Globalization;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System.Net.Http;
-using HtmlAgilityPack;
-using Castle.DynamicProxy.Generators.Emitters;
-using System.Text.Json.Nodes;
-using System.Windows.Automation;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 using WinCopies.Util;
-using WinCopies.Linq;
-using static SharedMemory.CircularBuffer;
-using System.Xml;
 
 namespace EDQuickLauncher.Game {
 
