@@ -41,15 +41,15 @@
 		<EmbeddedResource Include="Resources\Loc\ed\*.json" />
 		<EmbeddedResource Include="Resources\Loc\*.json" />
 	</ItemGroup>
-	<PropertyGroup Condition=" '$(Configuration)' == 'Debug|AnyCPU' ">
+	<PropertyGroup Condition=" '$(Configuration)' == 'Debug|Any CPU' ">
 	  <NoWarn>1701;1702;8002</NoWarn>
 		<DefineConstants>TRACE;DEBUG;XL_NOAUTOUPDATE</DefineConstants>
 	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)' == 'ReleaseNoUpdate|AnyCPU' ">
+	<PropertyGroup Condition=" '$(Configuration)' == 'ReleaseNoUpdate|Any CPU' ">
 	  <NoWarn>1701;1702;8002</NoWarn>
 		<DefineConstants>TRACE;XL_NOAUTOUPDATE</DefineConstants>
 	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Any CPU'">
 	  <NoWarn>1701;1702;8002</NoWarn>
 		<DefineConstants>TRACE;XL_NOAUTOUPDATE</DefineConstants>
 	</PropertyGroup>
