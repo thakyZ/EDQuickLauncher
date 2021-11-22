@@ -2,11 +2,9 @@ name: Build EDQuickLauncher
 
 on:
   push:
-    tags:
-    - '*.*.*'
+    tags: [ '*' ]
   pull_request:
-    branches:
-    - main
+    branches: [ main ]
 
 concurrency: build_ed
 
