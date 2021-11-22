@@ -76,23 +76,22 @@ jobs:
       - name: Build Squirrel Release
         id: build-squirrel
         run: |
-          cd src\
+          Set-Location src\
           $releases = Invoke-WebRequest -Uri 'https://api.github.com/repos/thakyZ/EDQuickLauncher/releases'
           $current = ConvertFrom-Json -InputObject $releases.Content | Select-Object -First 1
           $refver = $env:GITHUB_REF -replace '.*/'
-          echo "::set-output name=version::$refver"
+          Write-Host "::set-output name=version::$refver"
           nuget pack .\EDQuickLauncher.nuspec -properties version=$refver
-          mkdir Releases
+          New-Item -Path Releases -ItemType Directory
           $release_file = $current.assets | Where-Object -Property name -Value RELEASES -EQ
           Invoke-WebRequest -Uri $release_file.browser_download_url -OutFile .\Releases\RELEASES
           $full_file = $current.assets | Where-Object -Property name -Value "*full.nupkg" -Like
           Invoke-WebRequest -Uri $full_file.browser_download_url -OutFile ".\Releases\$($full_file.name)"
           $setup_file = $current.assets | Where-Object -Property name -Value "Setup.exe" -EQ
           Invoke-WebRequest -Uri $setup_file.browser_download_url -OutFile .\Releases\Setup.exe
-           ~\.nuget\packages\squirrel.windows\2.0.2-netcore.3\tools\Squirrel.exe --no-msi --releasify .\EDQuickLauncher.$refver.nupkg --setupIcon=.\EDQuickLauncher\Resources\ed_icon.ico --icon=.\EDQuickLauncher\Resources\ed_icon.ico
+          & "~\.nuget\packages\squirrel.windows\2.0.2-netcore.3\tools\Squirrel.exe" --no-msi --releasify .\EDQuickLauncher.$refver.nupkg --setupIcon=.\EDQuickLauncher\Resources\ed_icon.ico --icon=.\EDQuickLauncher\Resources\ed_icon.ico
           Start-Sleep -s 30
-          rm ".\Releases\$($delta_file.name)"
-          rm ".\Releases\$($full_file.name)"
+          Remove-Item ".\Releases\$($full_file.name)"
       - name: Create Release
         uses: softprops/action-gh-release@91409e712cf565ce9eff10c87a8d1b11b81757ae
         env:
