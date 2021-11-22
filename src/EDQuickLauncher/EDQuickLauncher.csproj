@@ -4,6 +4,7 @@
 		<AssemblyTitle>EDQuickLauncher</AssemblyTitle>
 		<Description>Custom launcher for Elite: Dangerous.</Description>
 		<VersionPrefix>1.0.0</VersionPrefix>
+		<Configurations>Debug;Release;ReleaseNoUpdate</Configurations>
 	</PropertyGroup>
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
@@ -41,17 +42,17 @@
 		<EmbeddedResource Include="Resources\Loc\ed\*.json" />
 		<EmbeddedResource Include="Resources\Loc\*.json" />
 	</ItemGroup>
-	<PropertyGroup Condition=" '$(Configuration)' == 'Debug|Any CPU' ">
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Any CPU' ">
 	  <NoWarn>1701;1702;8002</NoWarn>
 		<DefineConstants>TRACE;DEBUG;XL_NOAUTOUPDATE</DefineConstants>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)' == 'ReleaseNoUpdate|Any CPU' ">
-	  <NoWarn>1701;1702;8002</NoWarn>
-		<DefineConstants>TRACE;XL_NOAUTOUPDATE</DefineConstants>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Any CPU'">
 	  <NoWarn>1701;1702;8002</NoWarn>
 		<DefineConstants>TRACE;XL_NOAUTOUPDATE</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseNoUpdate|Any CPU'">
+	  <NoWarn>1701;1702;8002</NoWarn>
+	  <DefineConstants>TRACE;XL_NOAUTOUPDATE</DefineConstants>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="SteamWorksSharp\Native\Windows_x64\steam_api64.dll" />
