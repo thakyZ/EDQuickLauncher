@@ -1,1 +1,5 @@
 ﻿﻿• Fixed news links not opening.
+﻿• Implemented new config system. (Please report any bugs)
+﻿• Fixed inconsistencies with some localized text appearing in the UI.
+﻿• Fixed the game path not being carried over from first time setup.
+﻿• NOTE: at some point Config V1 will not be used anymore.
