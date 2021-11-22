@@ -3,6 +3,8 @@
  */
 
 using CheapLoc;
+using EDQuickLauncher.Config;
+using EDQuickLauncher.Settings;
 using EDQuickLauncher.Windows.ViewModel;
 using IWshRuntimeLibrary;
 using System;
@@ -63,6 +65,8 @@ namespace EDQuickLauncher.Windows {
 
       if (SetupTabControl.SelectedIndex >= SetupTabControl.Items.Count - 1) {
         WasCompleted = true;
+        App.Settings.GamePath = new DirectoryInfo(GamePathEntry.Text);
+        ConfigTools.Save(App.Settings, typeof(LauncherSettingsV2));
         Close();
       }
 

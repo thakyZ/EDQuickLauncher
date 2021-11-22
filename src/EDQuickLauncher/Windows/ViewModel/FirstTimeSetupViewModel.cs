@@ -10,8 +10,10 @@ namespace EDQuickLauncher.Windows.ViewModel {
     public void SetupLoc() {
       FirstTimeGamePathLoc = Loc.Localize("ChooseGamePathFTS",
         "Please select the folder your game is installed in.\r\nIt should contain the folder \"Products\".");
+      NextLoc = Loc.Localize("Next", "Next");
     }
 
     public string FirstTimeGamePathLoc { get; private set; }
+    public string NextLoc { get; private set; }
   }
 }
