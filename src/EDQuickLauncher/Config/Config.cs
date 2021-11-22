@@ -44,7 +44,8 @@ namespace EDQuickLauncher.Config {
           File.Move(backupPath, ConfigPath);
         }
       } catch (Exception e) {
-        Log.Error(e, "Could not get language information. Setting up fallbacks.");
+        Log.Error(e, $"Could not save settings file to {ConfigPath}. {e.Message}");
+        var unused = new Windows.ErrorWindow(e, $"Failed to save settings to file.", "SettingsSaveError");
         return false;
       }
       return true;
