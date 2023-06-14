@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<Product>EDQuickLauncher</Product>
 		<AssemblyTitle>EDQuickLauncher</AssemblyTitle>
@@ -93,7 +93,7 @@
 		<PackageReference Include="System.Net.Http" Version="4.3.4" />
 		<PackageReference Include="System.Text.Encodings.Web" Version="6.0.0" />
 		<PackageReference Include="MaterialDesignThemes" Version="4.2.1" />
-		<PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.6" />
 		<PackageReference Include="WinCopies.WindowsAPICodePack.Shell" Version="2.10.2" />
 	</ItemGroup>
 	<!-- Git -->
